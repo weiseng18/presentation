@@ -1,12 +1,9 @@
-import { Heading, Text, VStack } from '@chakra-ui/react'
+import { Heading, VStack } from '@chakra-ui/react'
+import { MText } from '../components/MotionChakra'
 
 import Slide from '../components/Slide'
 
 import { toggleOpacity } from '../animations'
-
-import { motion } from 'framer-motion'
-
-const MText = motion(Text)
 
 const Title = ({ direction, step }) => {
   return (

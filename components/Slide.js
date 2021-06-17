@@ -1,16 +1,12 @@
-import { Flex } from '@chakra-ui/react'
-
-import { motion } from 'framer-motion'
+import { MFlex } from '../components/MotionChakra'
 
 import { changeSlide } from '../animations'
 
 import React from 'react'
 
-const MotionFlex = motion(Flex)
-
 const Slide = ({ children, direction }) => {
   return (
-    <MotionFlex
+    <MFlex
       initial={changeSlide.initial}
       animate={changeSlide.animate}
       exit={changeSlide.exit}
@@ -24,7 +20,7 @@ const Slide = ({ children, direction }) => {
       alignItems="center"
     >
       {children}
-    </MotionFlex>
+    </MFlex>
   )
 }
 
