@@ -3,7 +3,7 @@ import { Flex, Heading, Text } from '@chakra-ui/react'
 import { AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 
-import Slide from './components/Slide'
+import Slide from '../components/Slide'
 
 const Index = () => {
   const [slide, setSlide] = useState(0)
