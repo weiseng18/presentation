@@ -1,13 +1,9 @@
 import { Flex, Heading, Text } from '@chakra-ui/react'
 
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 
 import Slide from './components/Slide'
-
-// convert to motion
-const MotionText = motion(Text)
-const MotionHeading = motion(Heading)
 
 const Index = () => {
   const [slide, setSlide] = useState(0)
@@ -25,7 +21,7 @@ const Index = () => {
 const Title = () => {
   return (
     <Slide>
-      <MotionText>Hello World</MotionText>
+      <Text>Hello World</Text>
     </Slide>
   )
 }
@@ -33,7 +29,7 @@ const Title = () => {
 const Final = () => {
   return (
     <Slide>
-      <MotionHeading>Hello World</MotionHeading>
+      <Heading>Hello World</Heading>
     </Slide>
   )
 }
