@@ -6,7 +6,7 @@ import React from 'react'
 
 const MotionFlex = motion(Flex)
 
-const Slide = ({ children }) => {
+const Slide = ({ children, direction }) => {
   const transition = {
     x: {
       type: 'spring',
@@ -46,6 +46,7 @@ const Slide = ({ children }) => {
       exit="exit"
       transition={transition}
       variants={variants}
+      custom={direction}
       h="90%"
       w="90%"
       m="auto"

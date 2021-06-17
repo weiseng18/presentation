@@ -2,23 +2,23 @@ import { Heading, Text } from '@chakra-ui/react'
 
 import Slide from '../components/Slide'
 
-const Title = () => {
+const Title = ({ direction }) => {
   return (
-    <Slide>
+    <Slide direction={direction}>
       <Text>Hello World</Text>
     </Slide>
   )
 }
 
-const Final = () => {
+const Final = ({ direction }) => {
   return (
-    <Slide>
+    <Slide direction={direction}>
       <Heading>Hello World</Heading>
     </Slide>
   )
 }
 
 export default [
-  <Title />,
-  <Final />
+  Title,
+  Final
 ]
