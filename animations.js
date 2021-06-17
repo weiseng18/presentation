@@ -34,6 +34,24 @@ const changeSlide = {
   }
 }
 
+const toggleOpacity = {
+  initial: "start",
+  animate: "end",
+  variants: {
+    start: (action) => {
+      return {
+        opacity: action === 'exit' ? 1 : 0
+      }
+    },
+    end: (action) => {
+      return {
+        opacity: action === 'exit' ? 0 : 1
+      }
+    },
+  }
+}
+
 export {
-  changeSlide
+  changeSlide,
+  toggleOpacity
 }
