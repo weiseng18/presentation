@@ -6,17 +6,31 @@ import { useState } from 'react'
 import slides from '../slides'
 
 const Index = () => {
+  // this array should contain 1 value per slide
+  const STEP_MAX = [1, 0]
+
   const [slide, setSlide] = useState(0)
+  const [step, setStep] = useState(0)
   const [direction, setDirection] = useState(0)
 
   const changeSlide = (delta) => {
     const newSlide = slide + delta
-    if (newSlide < 0 || newSlide >= slides.length)
-      return
+    const newStep = step + delta
 
-    setSlide(newSlide)
-    // direction is opposite of delta
-    setDirection(-delta)
+    // if newStep is not out of bounds, do a step instead of slide change
+    if (newStep >= 0 && newStep <= STEP_MAX[slide]) {
+      setStep(newStep)
+    }
+    // else change the slide
+    else {
+      // disallow going out of bounds
+      if (newSlide < 0 || newSlide >= slides.length) return
+
+      setSlide(newSlide)
+      setStep(STEP_MAX[newSlide])
+      // direction is opposite of delta
+      setDirection(-delta)
+    }
   }
 
   const handleKeyDown = (e) => {
@@ -28,7 +42,7 @@ const Index = () => {
     const one = slides.slice(slide, slide+1)
     return (
       one.map((Component, index) => {
-        return <Component direction={direction} />
+        return <Component direction={direction} step={step} />
       })
     )
   }
