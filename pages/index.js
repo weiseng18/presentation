@@ -27,7 +27,7 @@ const Index = () => {
       if (newSlide < 0 || newSlide >= slides.length) return
 
       setSlide(newSlide)
-      setStep(STEP_MAX[newSlide])
+      setStep(delta < 0 ? STEP_MAX[newSlide] : 0)
       // direction is opposite of delta
       setDirection(-delta)
     }
