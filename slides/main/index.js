@@ -6,8 +6,8 @@ const Title = ({ direction }) => {
   return (
     <TitleSlide
       direction={direction}
-      title="web-slides"
-      subtitle="simple framework for web presentation"
+      title="My time here at OGP"
+      subtitle="Tan Wei Seng"
     />
   )
 }
