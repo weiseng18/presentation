@@ -72,7 +72,6 @@ const Images = ({ direction, step }) => {
       <Flex w="100%" justifyContent="space-around" alignItems="center" mt={8}>
         {step >= 1 && (
           <CaptionImageFull
-            className="1"
             src="pixelart.png"
             h="256"
             w="455"
@@ -82,7 +81,6 @@ const Images = ({ direction, step }) => {
         )}
         {step >= 3 && (
           <CaptionImageFull
-            className="2"
             src="maze.png"
             h="256"
             w="455"

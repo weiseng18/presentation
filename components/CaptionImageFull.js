@@ -5,7 +5,7 @@ import { toggleOpacity } from "../animations"
 
 import React from "react"
 
-const CaptionImage = ({ src, h, w, caption, isFull, adjust }) => {
+const CaptionImageFull = ({ src, h, w, caption, isFull, adjust }) => {
   return (
     <MVStack {...toggleOpacity} custom="enter" spacing={8}>
       <MImage
@@ -35,4 +35,4 @@ const CaptionImage = ({ src, h, w, caption, isFull, adjust }) => {
   )
 }
 
-export default CaptionImage
+export default CaptionImageFull
