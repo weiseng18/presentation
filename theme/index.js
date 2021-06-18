@@ -1,11 +1,11 @@
-import { extendTheme } from '@chakra-ui/react'
+import { extendTheme } from "@chakra-ui/react"
 
-import { fonts } from './fonts'
-import { textStyles } from './textStyles'
+import { fonts } from "./fonts"
+import { textStyles } from "./textStyles"
 
 const theme = extendTheme({
   fonts,
-  textStyles
+  textStyles,
 })
 
 export default theme

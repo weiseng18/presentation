@@ -1,9 +1,9 @@
-import { Flex } from '@chakra-ui/react'
+import { Flex } from "@chakra-ui/react"
 
-import { AnimatePresence } from 'framer-motion'
-import { useState } from 'react'
+import { AnimatePresence } from "framer-motion"
+import { useState } from "react"
 
-import slides from '../slides'
+import slides from "../slides"
 
 const Index = () => {
   // this array should contain 1 value per slide
@@ -34,22 +34,29 @@ const Index = () => {
   }
 
   const handleKeyDown = (e) => {
-    if (e.key === 'd') { changeSlide(1) }
-    else if (e.key === 'a') { changeSlide(-1) }
+    if (e.key === "d") {
+      changeSlide(1)
+    } else if (e.key === "a") {
+      changeSlide(-1)
+    }
   }
 
   const renderSlide = () => {
-    const one = slides.slice(slide, slide+1)
-    return (
-      one.map((Component, index) => {
-        return <Component direction={direction} step={step} />
-      })
-    )
+    const one = slides.slice(slide, slide + 1)
+    return one.map((Component, index) => {
+      return <Component direction={direction} step={step} />
+    })
   }
 
   return (
     <AnimatePresence initial={false}>
-      <Flex h="100vh" w="100vw" overflow="hidden" tabIndex={0} onKeyDown={handleKeyDown}>
+      <Flex
+        h="100vh"
+        w="100vw"
+        overflow="hidden"
+        tabIndex={0}
+        onKeyDown={handleKeyDown}
+      >
         {renderSlide()}
       </Flex>
     </AnimatePresence>

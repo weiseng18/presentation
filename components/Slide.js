@@ -1,8 +1,8 @@
-import { MFlex } from '../components/MotionChakra'
+import { MFlex } from "../components/MotionChakra"
 
-import { changeSlide } from '../animations'
+import { changeSlide } from "../animations"
 
-import React from 'react'
+import React from "react"
 
 const Slide = ({ children, direction }) => {
   return (

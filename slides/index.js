@@ -1,3 +1,3 @@
-import slides from './tutorial'
+import slides from "./tutorial"
 
 export default slides

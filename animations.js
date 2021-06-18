@@ -4,34 +4,34 @@ const changeSlide = {
   exit: "exit",
   transition: {
     x: {
-      type: 'spring',
+      type: "spring",
       stiffness: 300,
       damping: 30,
     },
     opacity: {
-      duration: 0.2
-    }
+      duration: 0.2,
+    },
   },
   variants: {
     enter: (direction) => {
       return {
         x: direction > 0 ? -1500 : 1500,
-        opacity: 0
+        opacity: 0,
       }
     },
     center: {
       zIndex: 1,
       x: 0,
-      opacity: 1
+      opacity: 1,
     },
     exit: (direction) => {
       return {
         zIndex: 0,
         x: direction < 0 ? -1500 : 1500,
-        opacity: 0
+        opacity: 0,
       }
-    }
-  }
+    },
+  },
 }
 
 const toggleOpacity = {
@@ -40,18 +40,15 @@ const toggleOpacity = {
   variants: {
     start: (action) => {
       return {
-        opacity: action === 'exit' ? 1 : 0
+        opacity: action === "exit" ? 1 : 0,
       }
     },
     end: (action) => {
       return {
-        opacity: action === 'exit' ? 0 : 1
+        opacity: action === "exit" ? 0 : 1,
       }
     },
-  }
+  },
 }
 
-export {
-  changeSlide,
-  toggleOpacity
-}
+export { changeSlide, toggleOpacity }

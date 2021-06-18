@@ -1,8 +1,8 @@
-import { Text, VStack } from '@chakra-ui/react'
+import { Text, VStack } from "@chakra-ui/react"
 
-import React from 'react'
+import React from "react"
 
-import Slide from './Slide'
+import Slide from "./Slide"
 
 const TitleSlide = ({ direction, title, subtitle }) => {
   return (

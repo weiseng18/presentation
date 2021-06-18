@@ -1,21 +1,24 @@
-import { Heading, VStack } from '@chakra-ui/react'
-import { MText } from '../../components/MotionChakra'
+import { Heading, VStack } from "@chakra-ui/react"
+import { MText } from "../../components/MotionChakra"
 
-import Slide from '../../components/Slide'
-import TitleSlide from '../../components/TitleSlide'
-import ContentSlide from '../../components/ContentSlide'
+import Slide from "../../components/Slide"
+import TitleSlide from "../../components/TitleSlide"
+import ContentSlide from "../../components/ContentSlide"
 
-import { toggleOpacity } from '../../animations'
-import { useEffect, useState } from 'react'
+import { toggleOpacity } from "../../animations"
+import { useEffect, useState } from "react"
 
 const PreTitle = ({ direction }) => {
   return (
-    <TitleSlide direction={direction} title="First slide" subtitle="some text" />
+    <TitleSlide
+      direction={direction}
+      title="First slide"
+      subtitle="some text"
+    />
   )
 }
 
 const Content = ({ direction, step }) => {
-
   const [color, setColor] = useState("black")
   const [fontSize, setFontSize] = useState("16px")
 
@@ -23,13 +26,11 @@ const Content = ({ direction, step }) => {
     if (step >= 1) {
       setColor("blue")
       setFontSize("32px")
-    }
-    else {
+    } else {
       setColor("black")
       setFontSize("16px")
     }
   }, [step])
-
 
   return (
     <ContentSlide direction={direction} title="Some content">
@@ -37,13 +38,14 @@ const Content = ({ direction, step }) => {
         <MText
           animate={{
             color: color,
-            fontSize: fontSize
+            fontSize: fontSize,
           }}
         >
           Hello World
         </MText>
         {step === 1 && (
-          <MText color="red"
+          <MText
+            color="red"
             initial={toggleOpacity.initial}
             animate={toggleOpacity.animate}
             exit={toggleOpacity.exit}
@@ -66,8 +68,4 @@ const Final = ({ direction }) => {
   )
 }
 
-export default [
-  PreTitle,
-  Content,
-  Final
-]
+export default [PreTitle, Content, Final]

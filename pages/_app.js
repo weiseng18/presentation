@@ -1,8 +1,8 @@
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider } from "@chakra-ui/react"
 
-import '@fontsource/inter'
+import "@fontsource/inter"
 
-import theme from '../theme'
+import theme from "../theme"
 
 function App({ Component, pageProps }) {
   return (
