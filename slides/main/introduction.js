@@ -10,25 +10,12 @@ const BeforeOGP = ({ direction, step }) => {
     <ContentSlide direction={direction} title="Before OGP">
       <UnorderedList spacing={8}>
         {step >= 1 && (
-          <MListItem
-            initial={toggleOpacity.initial}
-            animate={toggleOpacity.animate}
-            exit={toggleOpacity.exit}
-            variants={toggleOpacity.variants}
-            custom="enter"
-          >
+          <MListItem {...toggleOpacity} custom="enter">
             <MText textStyle="body1" fontWeight="600" mb={8}>
               A Levels @ Hwa Chong Institution:{" "}
             </MText>
             {step >= 2 && (
-              <MHStack
-                initial={toggleOpacity.initial}
-                animate={toggleOpacity.animate}
-                exit={toggleOpacity.exit}
-                variants={toggleOpacity.variants}
-                custom="enter"
-                spacing={8}
-              >
+              <MHStack {...toggleOpacity} custom="enter" spacing={8}>
                 <Text textStyle="body1">H2 Math</Text>
                 <Text textStyle="body1">H2 Further Math</Text>
                 <Text textStyle="body1">H2 Computing</Text>
@@ -37,40 +24,21 @@ const BeforeOGP = ({ direction, step }) => {
               </MHStack>
             )}
             {step >= 3 && (
-              <MText
-                initial={toggleOpacity.initial}
-                animate={toggleOpacity.animate}
-                exit={toggleOpacity.exit}
-                variants={toggleOpacity.variants}
-                custom="enter"
-                textStyle="body1"
-              >
+              <MText {...toggleOpacity} custom="enter" textStyle="body1">
                 Infocomm & Robotics Society (IRS)
               </MText>
             )}
           </MListItem>
         )}
         {step >= 4 && (
-          <MListItem
-            initial={toggleOpacity.initial}
-            animate={toggleOpacity.animate}
-            exit={toggleOpacity.exit}
-            variants={toggleOpacity.variants}
-            custom="enter"
-          >
+          <MListItem {...toggleOpacity} custom="enter">
             <Text textStyle="body1" fontWeight="600">
               2 years of National Service
             </Text>
           </MListItem>
         )}
         {step >= 5 && (
-          <MListItem
-            initial={toggleOpacity.initial}
-            animate={toggleOpacity.animate}
-            exit={toggleOpacity.exit}
-            variants={toggleOpacity.variants}
-            custom="enter"
-          >
+          <MListItem {...toggleOpacity} custom="enter">
             <Text textStyle="body1" fontWeight="600">
               OGP
             </Text>
@@ -86,13 +54,7 @@ const ProgrammingBackground = ({ direction, step }) => {
     <ContentSlide direction={direction} title="Programming">
       <UnorderedList spacing={8}>
         {step >= 1 && (
-          <MListItem
-            initial={toggleOpacity.initial}
-            animate={toggleOpacity.animate}
-            exit={toggleOpacity.exit}
-            variants={toggleOpacity.variants}
-            custom="enter"
-          >
+          <MListItem {...toggleOpacity} custom="enter">
             <Text textStyle="body1" fontWeight="600">
               C++
             </Text>
@@ -102,13 +64,7 @@ const ProgrammingBackground = ({ direction, step }) => {
           </MListItem>
         )}
         {step >= 2 && (
-          <MListItem
-            initial={toggleOpacity.initial}
-            animate={toggleOpacity.animate}
-            exit={toggleOpacity.exit}
-            variants={toggleOpacity.variants}
-            custom="enter"
-          >
+          <MListItem {...toggleOpacity} custom="enter">
             <Text textStyle="body1" fontWeight="600">
               Python
             </Text>
@@ -118,13 +74,7 @@ const ProgrammingBackground = ({ direction, step }) => {
           </MListItem>
         )}
         {step >= 3 && (
-          <MListItem
-            initial={toggleOpacity.initial}
-            animate={toggleOpacity.animate}
-            exit={toggleOpacity.exit}
-            variants={toggleOpacity.variants}
-            custom="enter"
-          >
+          <MListItem {...toggleOpacity} custom="enter">
             <Text textStyle="body1" fontWeight="600">
               HTML/CSS/JS
             </Text>
