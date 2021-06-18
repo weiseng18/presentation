@@ -5,6 +5,13 @@ import Slide from '../../components/Slide'
 
 import { toggleOpacity } from '../../animations'
 import { useEffect, useState } from 'react'
+import TitleSlide from '../../components/TitleSlide'
+
+const PreTitle = ({ direction }) => {
+  return (
+    <TitleSlide direction={direction} title="First slide" subtitle="some text" />
+  )
+}
 
 const Title = ({ direction, step }) => {
 
@@ -59,6 +66,7 @@ const Final = ({ direction }) => {
 }
 
 export default [
+  PreTitle,
   Title,
   Final
 ]
