@@ -37,6 +37,7 @@ const changeSlide = {
 const toggleOpacity = {
   initial: "start",
   animate: "end",
+  exit: "start",
   variants: {
     start: (action) => {
       return {
