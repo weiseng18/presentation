@@ -3,7 +3,7 @@ import { Flex } from "@chakra-ui/react"
 import { AnimatePresence } from "framer-motion"
 import { useState } from "react"
 
-import slides from "../slides"
+import slides from "../slides/tutorial"
 
 const Index = () => {
   // this array should contain 1 value per slide
