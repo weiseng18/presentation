@@ -1,5 +1,17 @@
-import { Flex, Text, UnorderedList } from "@chakra-ui/react"
-import { MHStack, MListItem, MText } from "../../components/MotionChakra"
+import {
+  Flex,
+  Grid,
+  ListItem,
+  Text,
+  UnorderedList,
+  VStack,
+} from "@chakra-ui/react"
+import {
+  MHStack,
+  MListItem,
+  MText,
+  MVStack,
+} from "../../components/MotionChakra"
 
 import ContentSlide from "../../components/ContentSlide"
 
@@ -124,4 +136,121 @@ const StaticPages = ({ direction, step }) => {
   )
 }
 
-export default [BeforeOGP, ProgrammingBackground, StaticPages]
+const OverallLearnings = ({ direction, step }) => {
+  return (
+    <ContentSlide direction={direction} title="Knowledge acquired">
+      <VStack w="100%" spacing={8}>
+        <Grid w="100%" templateColumns="repeat(4, 1fr)" gap={8} mt={4}>
+          {step >= 1 && (
+            <MVStack
+              {...toggleOpacity}
+              custom="enter"
+              spacing={8}
+              h="100%"
+              alignItems="flex-start"
+            >
+              <Text textStyle="body1" fontWeight="600">
+                Frontend
+              </Text>
+              <UnorderedList spacing={8} mt={8}>
+                <ListItem>
+                  <Text>React.js</Text>
+                </ListItem>
+                <ListItem>
+                  <Text>Next.js</Text>
+                </ListItem>
+                <ListItem>
+                  <Text>Chakra UI</Text>
+                </ListItem>
+              </UnorderedList>
+            </MVStack>
+          )}
+          {step >= 2 && (
+            <MVStack
+              {...toggleOpacity}
+              custom="enter"
+              spacing={8}
+              h="100%"
+              alignItems="flex-start"
+            >
+              <Text textStyle="body1" fontWeight="600">
+                Backend
+              </Text>
+              <UnorderedList spacing={8} mt={8}>
+                <ListItem>
+                  <Text>Node.js</Text>
+                </ListItem>
+                <ListItem>
+                  <Text>Express.js</Text>
+                </ListItem>
+              </UnorderedList>
+            </MVStack>
+          )}
+          {step >= 3 && (
+            <MVStack
+              {...toggleOpacity}
+              custom="enter"
+              spacing={8}
+              h="100%"
+              alignItems="flex-start"
+            >
+              <Text textStyle="body1" fontWeight="600">
+                AWS
+              </Text>
+              <UnorderedList spacing={8} mt={8}>
+                <ListItem>
+                  <Text>S3</Text>
+                </ListItem>
+                <ListItem>
+                  <Text>Cloudwatch</Text>
+                </ListItem>
+                <ListItem>
+                  <Text>Elastic Beanstalk</Text>
+                </ListItem>
+              </UnorderedList>
+            </MVStack>
+          )}
+          {step >= 4 && (
+            <MVStack
+              {...toggleOpacity}
+              custom="enter"
+              spacing={8}
+              h="100%"
+              alignItems="flex-start"
+            >
+              <Text textStyle="body1" fontWeight="600">
+                Working in a team
+              </Text>
+              <UnorderedList spacing={8} mt={8}>
+                <ListItem>
+                  <Text>Dealing with code created by not just me</Text>
+                </ListItem>
+                <ListItem>
+                  <Text>Writing code for not just me</Text>
+                </ListItem>
+                <ListItem>
+                  <Text>Coding practices</Text>
+                </ListItem>
+                <ListItem>
+                  <Text>Active communication with the team</Text>
+                </ListItem>
+              </UnorderedList>
+            </MVStack>
+          )}
+        </Grid>
+        {step >= 5 && (
+          <MText
+            {...toggleOpacity}
+            custom="enter"
+            textStyle="subHeading"
+            mt={8}
+          >
+            and so much more
+          </MText>
+        )}
+      </VStack>
+    </ContentSlide>
+  )
+}
+
+export default [BeforeOGP, ProgrammingBackground, StaticPages, OverallLearnings]
