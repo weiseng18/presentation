@@ -81,4 +81,64 @@ const BeforeOGP = ({ direction, step }) => {
   )
 }
 
-export default [BeforeOGP]
+const ProgrammingBackground = ({ direction, step }) => {
+  return (
+    <ContentSlide direction={direction} title="Programming">
+      <UnorderedList spacing={8}>
+        {step >= 1 && (
+          <MListItem
+            initial={toggleOpacity.initial}
+            animate={toggleOpacity.animate}
+            exit={toggleOpacity.exit}
+            variants={toggleOpacity.variants}
+            custom="enter"
+          >
+            <Text textStyle="body1" fontWeight="600">
+              C++
+            </Text>
+            <Text textStyle="body1" mt={4}>
+              National Olympiad of Informatics (NOI)
+            </Text>
+          </MListItem>
+        )}
+        {step >= 2 && (
+          <MListItem
+            initial={toggleOpacity.initial}
+            animate={toggleOpacity.animate}
+            exit={toggleOpacity.exit}
+            variants={toggleOpacity.variants}
+            custom="enter"
+          >
+            <Text textStyle="body1" fontWeight="600">
+              Python
+            </Text>
+            <Text textStyle="body1" mt={4}>
+              H2 Computing
+            </Text>
+          </MListItem>
+        )}
+        {step >= 3 && (
+          <MListItem
+            initial={toggleOpacity.initial}
+            animate={toggleOpacity.animate}
+            exit={toggleOpacity.exit}
+            variants={toggleOpacity.variants}
+            custom="enter"
+          >
+            <Text textStyle="body1" fontWeight="600">
+              HTML/CSS/JS
+            </Text>
+            <Text textStyle="body1" mt={4}>
+              Lower Sec Infocomm lessons
+            </Text>
+            <Text textStyle="body1" mt={4}>
+              Exploration
+            </Text>
+          </MListItem>
+        )}
+      </UnorderedList>
+    </ContentSlide>
+  )
+}
+
+export default [BeforeOGP, ProgrammingBackground]
