@@ -6,6 +6,7 @@ import TitleSlide from "../../components/TitleSlide"
 import ContentSlide from "../../components/ContentSlide"
 
 import CaptionImage from "../../components/CaptionImage"
+import CaptionImageFull from "../../components/CaptionImageFull"
 
 import { toggleOpacity } from "../../animations"
 import { useEffect, useState } from "react"
@@ -70,15 +71,16 @@ const Images = ({ direction, step }) => {
       </Text>
       <Flex w="100%" justifyContent="space-around" alignItems="center" mt={8}>
         {step >= 1 && (
-          <CaptionImage
+          <CaptionImageFull
             className="1"
             src="pixelart.png"
             h="256"
             w="455"
+            isFull={step == 1}
             caption="pixelart editor"
           />
         )}
-        {step >= 2 && (
+        {step >= 3 && (
           <CaptionImage
             className="2"
             src="maze.png"
