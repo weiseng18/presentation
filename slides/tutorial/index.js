@@ -2,10 +2,11 @@ import { Heading, VStack } from '@chakra-ui/react'
 import { MText } from '../../components/MotionChakra'
 
 import Slide from '../../components/Slide'
+import TitleSlide from '../../components/TitleSlide'
+import ContentSlide from '../../components/ContentSlide'
 
 import { toggleOpacity } from '../../animations'
 import { useEffect, useState } from 'react'
-import TitleSlide from '../../components/TitleSlide'
 
 const PreTitle = ({ direction }) => {
   return (
@@ -13,7 +14,7 @@ const PreTitle = ({ direction }) => {
   )
 }
 
-const Title = ({ direction, step }) => {
+const Content = ({ direction, step }) => {
 
   const [color, setColor] = useState("black")
   const [fontSize, setFontSize] = useState("16px")
@@ -31,7 +32,7 @@ const Title = ({ direction, step }) => {
 
 
   return (
-    <Slide direction={direction}>
+    <ContentSlide direction={direction} title="Some content">
       <VStack spacing={8}>
         <MText
           animate={{
@@ -53,7 +54,7 @@ const Title = ({ direction, step }) => {
           </MText>
         )}
       </VStack>
-    </Slide>
+    </ContentSlide>
   )
 }
 
@@ -67,6 +68,6 @@ const Final = ({ direction }) => {
 
 export default [
   PreTitle,
-  Title,
+  Content,
   Final
 ]
