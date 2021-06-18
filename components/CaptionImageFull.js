@@ -63,7 +63,7 @@ const CaptionImage = ({ src, h, w, caption, isFull }) => {
       {isFull && (
         <Box
           h="100vh"
-          w="100vh"
+          w="100vw"
           position="absolute"
           top="0"
           left="0"
