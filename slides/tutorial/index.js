@@ -106,11 +106,7 @@ const Side = ({ direction, step }) => {
       >
         Hello World
       </MText>
-      <MText
-        textStyle="body1"
-        animate={{ transform: `scale(${step === 2 ? 2.5 : 1})` }}
-        layoutId="transition"
-      >
+      <MText textStyle="body1" layoutId="transition">
         Transition to Title
       </MText>
     </TwoColSlide>
