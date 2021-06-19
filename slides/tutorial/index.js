@@ -10,6 +10,7 @@ import CaptionImageFull from "../../components/CaptionImageFull"
 
 import { toggleOpacity } from "../../animations"
 import { useEffect, useState } from "react"
+import TwoColSlide from "../../components/TwoColSlide"
 
 const PreTitle = ({ direction }) => {
   return (
@@ -94,6 +95,25 @@ const Images = ({ direction, step }) => {
   )
 }
 
+const Side = ({ direction, step }) => {
+  return (
+    <TwoColSlide direction={direction} title="Title on the side">
+      <MText
+        textStyle="body1"
+        animate={{ transform: `scale(${step === 1 ? 2.5 : 1})` }}
+      >
+        Hello World
+      </MText>
+      <MText
+        textStyle="body1"
+        animate={{ transform: `scale(${step === 2 ? 2.5 : 1})` }}
+      >
+        Hello World Again
+      </MText>
+    </TwoColSlide>
+  )
+}
+
 const Final = ({ direction }) => {
   return (
     <Slide direction={direction}>
@@ -102,4 +122,4 @@ const Final = ({ direction }) => {
   )
 }
 
-export default [PreTitle, Content, Images, Final]
+export default [PreTitle, Content, Images, Side, Final]
