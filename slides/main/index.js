@@ -1,6 +1,7 @@
 import TitleSlide from "../../components/TitleSlide"
 
 import Introduction from "./introduction"
+import Features from "./features"
 
 const Title = ({ direction }) => {
   return (
@@ -22,4 +23,4 @@ const Final = ({ direction }) => {
   )
 }
 
-export default [Title, ...Introduction, Final]
+export default [Title, ...Introduction, ...Features, Final]
