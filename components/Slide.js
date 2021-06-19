@@ -5,13 +5,11 @@ import { changeSlide } from "../animations"
 import React from "react"
 
 const Slide = ({ children, direction, customSlideChange }) => {
+  const animateProps = customSlideChange ? false : { ...changeSlide }
+
   return (
     <MFlex
-      initial={!customSlideChange && changeSlide.initial}
-      animate={!customSlideChange && changeSlide.animate}
-      exit={!customSlideChange && changeSlide.exit}
-      transition={!customSlideChange && changeSlide.transition}
-      variants={!customSlideChange && changeSlide.variants}
+      {...animateProps}
       custom={!customSlideChange && direction}
       h="90%"
       w="90%"
