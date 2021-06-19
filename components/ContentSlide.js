@@ -1,9 +1,11 @@
+// base components
 import { Flex, Text, VStack } from "@chakra-ui/react"
-
-import React from "react"
 import { MText } from "./MotionChakra"
 
+// slide components
 import Slide from "./Slide"
+
+import React from "react"
 
 const ContentSlide = ({ direction, title, children, layoutIdTitle }) => {
   return (

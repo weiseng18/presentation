@@ -1,5 +1,7 @@
+// base components
 import { MFlex } from "../components/MotionChakra"
 
+// others
 import { changeSlide } from "../animations"
 
 import React from "react"
