@@ -1,6 +1,8 @@
+// base components
 import { Box, Text } from "@chakra-ui/react"
 import { MImage, MVStack } from "../components/MotionChakra"
 
+// others
 import { toggleOpacity } from "../animations"
 
 import React from "react"

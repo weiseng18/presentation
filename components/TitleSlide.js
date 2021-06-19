@@ -1,8 +1,10 @@
+// base components
 import { Text, VStack } from "@chakra-ui/react"
 
-import React from "react"
-
+// slide components
 import Slide from "./Slide"
+
+import React from "react"
 
 const TitleSlide = ({ direction, title, subtitle }) => {
   return (

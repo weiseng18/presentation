@@ -1,3 +1,4 @@
+// base components
 import { Flex, HStack, Image, ListItem, Text, VStack } from "@chakra-ui/react"
 
 import { motion } from "framer-motion"

@@ -1,8 +1,10 @@
-import { Flex, Text, VStack } from "@chakra-ui/react"
+// base components
+import { Flex, Text } from "@chakra-ui/react"
+
+// slide components
+import Slide from "./Slide"
 
 import React from "react"
-
-import Slide from "./Slide"
 
 const TwoColSlide = ({ direction, title, children }) => {
   return (

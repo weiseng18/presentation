@@ -1,15 +1,18 @@
+// base components
 import { Flex, Heading, Text, VStack } from "@chakra-ui/react"
 import { MText } from "../../components/MotionChakra"
 
+// slide components
 import Slide from "../../components/Slide"
 import TitleSlide from "../../components/TitleSlide"
 import ContentSlide from "../../components/ContentSlide"
+import TwoColSlide from "../../components/TwoColSlide"
 
+// custom components
 import CaptionImageFull from "../../components/CaptionImageFull"
 
 import { toggleOpacity } from "../../animations"
 import { useEffect, useState } from "react"
-import TwoColSlide from "../../components/TwoColSlide"
 
 const PreTitle = ({ direction }) => {
   return (
@@ -106,10 +109,23 @@ const Side = ({ direction, step }) => {
       <MText
         textStyle="body1"
         animate={{ transform: `scale(${step === 2 ? 2.5 : 1})` }}
+        layoutId="transition"
       >
-        Hello World Again
+        Transition to Title
       </MText>
     </TwoColSlide>
+  )
+}
+
+const TransitionCrossSlide = ({ direction }) => {
+  return (
+    <ContentSlide
+      direction={direction}
+      title="Transition to Title"
+      layoutIdTitle="transition"
+    >
+      <Text textStyle="body1">Placeholder content</Text>
+    </ContentSlide>
   )
 }
 
@@ -121,4 +137,4 @@ const Final = ({ direction }) => {
   )
 }
 
-export default [PreTitle, Content, Images, Side, Final]
+export default [PreTitle, Content, Images, Side, TransitionCrossSlide, Final]

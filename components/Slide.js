@@ -1,18 +1,18 @@
+// base components
 import { MFlex } from "../components/MotionChakra"
 
+// others
 import { changeSlide } from "../animations"
 
 import React from "react"
 
-const Slide = ({ children, direction }) => {
+const Slide = ({ children, direction, customSlideChange }) => {
+  const animateProps = customSlideChange ? false : { ...changeSlide }
+
   return (
     <MFlex
-      initial={changeSlide.initial}
-      animate={changeSlide.animate}
-      exit={changeSlide.exit}
-      transition={changeSlide.transition}
-      variants={changeSlide.variants}
-      custom={direction}
+      {...animateProps}
+      custom={!customSlideChange && direction}
       h="90%"
       w="90%"
       m="auto"

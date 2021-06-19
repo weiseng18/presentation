@@ -1,12 +1,15 @@
+// base components
 import { Flex, Text, VStack } from "@chakra-ui/react"
+import { MText } from "./MotionChakra"
+
+// slide components
+import Slide from "./Slide"
 
 import React from "react"
 
-import Slide from "./Slide"
-
-const ContentSlide = ({ direction, title, children }) => {
+const ContentSlide = ({ direction, title, children, layoutIdTitle }) => {
   return (
-    <Slide direction={direction}>
+    <Slide direction={direction} customSlideChange={layoutIdTitle}>
       <Flex
         h="90%"
         w="90%"
@@ -14,9 +17,18 @@ const ContentSlide = ({ direction, title, children }) => {
         justifyContent="space-around"
         alignItems="flex-start"
       >
-        <Text h="10%" textStyle="heading2">
-          {title}
-        </Text>
+        {layoutIdTitle ? (
+          <>
+            {/* By specifying layoutIdTitle, you can animate a word from a previous slide to the title of the next slide */}
+            <MText h="10%" textStyle="heading2" layoutId={layoutIdTitle}>
+              {title}
+            </MText>
+          </>
+        ) : (
+          <Text h="10%" textStyle="heading2">
+            {title}
+          </Text>
+        )}
         <VStack h="80%" w="100%" alignItems="flex-start" spacing={8}>
           {children}
         </VStack>

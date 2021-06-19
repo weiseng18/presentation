@@ -1,14 +1,18 @@
 import { ChakraProvider } from "@chakra-ui/react"
 
+import { AnimateSharedLayout } from "framer-motion"
+
 import "@fontsource/inter"
 
 import theme from "../theme"
 
 function App({ Component, pageProps }) {
   return (
-    <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <AnimateSharedLayout>
+      <ChakraProvider theme={theme}>
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </AnimateSharedLayout>
   )
 }
 

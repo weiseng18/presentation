@@ -1,3 +1,4 @@
+// base components
 import { Flex } from "@chakra-ui/react"
 
 import { AnimatePresence } from "framer-motion"
@@ -7,7 +8,7 @@ import slides from "../slides/tutorial"
 
 const Index = () => {
   // this array should contain 1 value per slide
-  const STEP_MAX = [0, 1, 4, 2, 0]
+  const STEP_MAX = [0, 1, 4, 2, 0, 0]
 
   const [slide, setSlide] = useState(0)
   const [step, setStep] = useState(0)
