@@ -5,7 +5,6 @@ import Slide from "../../components/Slide"
 import TitleSlide from "../../components/TitleSlide"
 import ContentSlide from "../../components/ContentSlide"
 
-import CaptionImage from "../../components/CaptionImage"
 import CaptionImageFull from "../../components/CaptionImageFull"
 
 import { toggleOpacity } from "../../animations"
