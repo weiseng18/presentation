@@ -106,10 +106,23 @@ const Side = ({ direction, step }) => {
       <MText
         textStyle="body1"
         animate={{ transform: `scale(${step === 2 ? 2.5 : 1})` }}
+        layoutId="transition"
       >
-        Hello World Again
+        Transition to Title
       </MText>
     </TwoColSlide>
+  )
+}
+
+const TransitionCrossSlide = ({ direction }) => {
+  return (
+    <ContentSlide
+      direction={direction}
+      title="Transition to Title"
+      layoutIdTitle="transition"
+    >
+      <Text textStyle="body1">Placeholder content</Text>
+    </ContentSlide>
   )
 }
 
@@ -121,4 +134,4 @@ const Final = ({ direction }) => {
   )
 }
 
-export default [PreTitle, Content, Images, Side, Final]
+export default [PreTitle, Content, Images, Side, TransitionCrossSlide, Final]
