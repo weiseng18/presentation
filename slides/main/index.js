@@ -1,3 +1,4 @@
+// slide components
 import TitleSlide from "../../components/TitleSlide"
 
 import Introduction from "./introduction"

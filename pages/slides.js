@@ -1,3 +1,4 @@
+// base components
 import { Flex } from "@chakra-ui/react"
 
 import { AnimatePresence } from "framer-motion"

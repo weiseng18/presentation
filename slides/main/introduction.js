@@ -1,3 +1,4 @@
+// base components
 import {
   Flex,
   Grid,
@@ -13,8 +14,10 @@ import {
   MVStack,
 } from "../../components/MotionChakra"
 
+// slide components
 import ContentSlide from "../../components/ContentSlide"
 
+// custom components
 import CaptionImageFull from "../../components/CaptionImageFull"
 
 import { toggleOpacity } from "../../animations"

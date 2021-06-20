@@ -1,5 +1,7 @@
+// base components
 import { MText } from "../../components/MotionChakra"
 
+// slide components
 import TwoColSlide from "../../components/TwoColSlide"
 
 const Title = ({ direction, step }) => {
