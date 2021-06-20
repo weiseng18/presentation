@@ -20,7 +20,12 @@ const ContentSlide = ({ direction, title, children, layoutIdTitle }) => {
         {layoutIdTitle ? (
           <>
             {/* By specifying layoutIdTitle, you can animate a word from a previous slide to the title of the next slide */}
-            <MText h="10%" textStyle="heading2" layoutId={layoutIdTitle}>
+            <MText
+              h="10%"
+              textStyle="heading2"
+              layoutId={layoutIdTitle}
+              transition={{ duration: 0.5 }}
+            >
               {title}
             </MText>
           </>
