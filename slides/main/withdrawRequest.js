@@ -39,4 +39,27 @@ const Title = ({ direction, step }) => {
   )
 }
 
-export default [Title]
+const WhyImplement = ({ direction, step }) => {
+  return (
+    <ContentSlide direction={direction} title="Why implement?">
+      <UnorderedList spacing={8}>
+        {step >= 1 && (
+          <MListItem {...toggleOpacity} custom="enter">
+            <Text textStyle="body1">
+              Undo functionality for internal locus of control
+            </Text>
+          </MListItem>
+        )}
+        {step >= 2 && (
+          <MListItem {...toggleOpacity} custom="enter">
+            <Text textStyle="body1">
+              Users had to ask their admin to ignore incorrect requests
+            </Text>
+          </MListItem>
+        )}
+      </UnorderedList>
+    </ContentSlide>
+  )
+}
+
+export default [Title, WhyImplement]

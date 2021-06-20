@@ -2,13 +2,13 @@
 import { Flex } from "@chakra-ui/react"
 
 import { AnimatePresence } from "framer-motion"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 import slides from "../slides/main"
 
 const Index = () => {
   // this array should contain 1 value per slide
-  const STEP_MAX = [0, 5, 3, 4, 5, 4, 3, 0]
+  const STEP_MAX = [0, 5, 3, 4, 5, 4, 3, 2, 0]
 
   const [slide, setSlide] = useState(0)
   const [step, setStep] = useState(0)
@@ -48,6 +48,10 @@ const Index = () => {
       return <Component direction={direction} step={step} />
     })
   }
+
+  useEffect(() => {
+    setSlide(5)
+  }, [])
 
   return (
     <AnimatePresence initial={false}>
