@@ -4,12 +4,15 @@ import { MText } from "../../components/MotionChakra"
 // slide components
 import TwoColSlide from "../../components/TwoColSlide"
 
+import WithdrawRequest from "./withdrawRequest"
+
 const Title = ({ direction, step }) => {
   return (
     <TwoColSlide direction={direction} title="Vault">
       {step >= 1 && (
         <MText
           textStyle="body1"
+          layoutId={step === 4 && "withdrawRequest"}
           animate={{ transform: `scale(${step === 4 ? 2 : 1})` }}
         >
           Withdraw request
@@ -28,4 +31,4 @@ const Title = ({ direction, step }) => {
     </TwoColSlide>
   )
 }
-export default [Title]
+export default [Title, ...WithdrawRequest]
