@@ -1,9 +1,13 @@
 // base components
-import { Text, UnorderedList } from "@chakra-ui/layout"
+import { HStack, List, ListIcon, Text, UnorderedList } from "@chakra-ui/layout"
 import { MListItem } from "../../components/MotionChakra"
 
 // slide components
 import ContentSlide from "../../components/ContentSlide"
+
+// icons
+import { BsCheckCircle, BsPencilSquare } from "react-icons/bs"
+import { FaStamp } from "react-icons/fa"
 
 import { toggleOpacity } from "../../animations"
 
@@ -14,27 +18,40 @@ const Title = ({ direction, step }) => {
       title="Withdraw Request"
       layoutIdTitle="withdrawRequest"
     >
-      <UnorderedList spacing={8}>
+      <List spacing={8}>
         {step >= 1 && (
           <MListItem {...toggleOpacity} custom="enter">
-            <Text textStyle="body1">
-              Request for dataset by submitting form
-            </Text>
+            <HStack spacing={4}>
+              <ListIcon
+                as={BsPencilSquare}
+                color="purple.800"
+                fontSize="24px"
+              />
+              <Text textStyle="body1">
+                Request for dataset by submitting form
+              </Text>
+            </HStack>
           </MListItem>
         )}
         {step >= 2 && (
           <MListItem {...toggleOpacity} custom="enter">
-            <Text textStyle="body1">
-              Endorsed by an admin from their organization
-            </Text>
+            <HStack spacing={4}>
+              <ListIcon as={BsCheckCircle} color="green.500" fontSize="24px" />
+              <Text textStyle="body1">
+                Endorsed by an admin from their organization
+              </Text>
+            </HStack>
           </MListItem>
         )}
         {step >= 3 && (
           <MListItem {...toggleOpacity} custom="enter">
-            <Text textStyle="body1">Approved by dataset owner</Text>
+            <HStack spacing={4}>
+              <ListIcon as={FaStamp} color="blue.500" fontSize="24px" />
+              <Text textStyle="body1">Approved by dataset owner</Text>
+            </HStack>
           </MListItem>
         )}
-      </UnorderedList>
+      </List>
     </ContentSlide>
   )
 }
