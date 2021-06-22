@@ -13,11 +13,7 @@ import { toggleOpacity } from "../../animations"
 
 const Title = ({ direction, step }) => {
   return (
-    <ContentSlide
-      direction={direction}
-      title="Withdraw Request"
-      layoutIdTitle="withdrawRequest"
-    >
+    <ContentSlide direction={direction} title="Request flow">
       <List spacing={8}>
         {step >= 1 && (
           <MListItem {...toggleOpacity} custom="enter">

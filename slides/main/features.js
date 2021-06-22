@@ -12,7 +12,6 @@ const Title = ({ direction, step }) => {
       {step >= 1 && (
         <MText
           textStyle="body1"
-          layoutId={step === 4 && "withdrawRequest"}
           animate={{ transform: `scale(${step === 4 ? 2 : 1})` }}
         >
           Withdraw request
