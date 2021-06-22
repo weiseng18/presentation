@@ -1,14 +1,15 @@
 // base components
 import { HStack, List, ListIcon, Text } from "@chakra-ui/layout"
-import { MListItem } from "../../components/MotionChakra"
+import { MHStack, MListItem } from "../../components/MotionChakra"
 
 // slide components
 import ContentSlide from "../../components/ContentSlide"
 
 // icons
-import { BsCheckCircle, BsPencilSquare } from "react-icons/bs"
+import { BsCheckCircle, BsPencilSquare, BsTrash } from "react-icons/bs"
 import { FaStamp } from "react-icons/fa"
 import { FcCancel, FcUndo } from "react-icons/fc"
+import { MdEdit } from "react-icons/md"
 
 import { toggleOpacity } from "../../animations"
 
@@ -82,4 +83,48 @@ const WhyImplement = ({ direction, step }) => {
   )
 }
 
-export default [Title, WhyImplement]
+const Functionality = ({ direction, step }) => {
+  return (
+    <ContentSlide direction={direction} title="Possible functionality">
+      <List spacing={8}>
+        {step >= 1 && (
+          <MListItem {...toggleOpacity} custom="enter">
+            <HStack spacing={4}>
+              <ListIcon as={BsTrash} color="gray.500" fontSize="24px" />
+              <Text textStyle="body1">
+                Only withdrawal, users have to re-create
+              </Text>
+            </HStack>
+          </MListItem>
+        )}
+        {step >= 2 && (
+          <MListItem {...toggleOpacity} custom="enter">
+            <HStack spacing={4}>
+              <ListIcon as={MdEdit} color="blue.500" fontSize="24px" />
+              <Text textStyle="body1">
+                Withdrawal, and edit the withdrawn request
+              </Text>
+            </HStack>
+          </MListItem>
+        )}
+      </List>
+      {step >= 3 && (
+        <MHStack
+          {...toggleOpacity}
+          custom="enter"
+          pt="80px"
+          justifyContent="center"
+          w="100%"
+        >
+          <Text fontSize="2xl">Users want to</Text>
+          <Text fontSize="3xl" fontWeight="600">
+            feel
+          </Text>
+          <Text fontSize="2xl">in control</Text>
+        </MHStack>
+      )}
+    </ContentSlide>
+  )
+}
+
+export default [Title, WhyImplement, Functionality]
