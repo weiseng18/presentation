@@ -28,7 +28,7 @@ const BeforeOGP = ({ direction, step }) => {
       <UnorderedList spacing={8}>
         {step >= 1 && (
           <MListItem {...toggleOpacity} custom="enter">
-            <MText textStyle="body1" fontWeight="600" mb={8}>
+            <MText textStyle="subHeading2" mb={8}>
               A Levels @ Hwa Chong Institution:{" "}
             </MText>
             {step >= 2 && (
@@ -49,16 +49,12 @@ const BeforeOGP = ({ direction, step }) => {
         )}
         {step >= 4 && (
           <MListItem {...toggleOpacity} custom="enter">
-            <Text textStyle="body1" fontWeight="600">
-              2 years of National Service
-            </Text>
+            <Text textStyle="subHeading2">2 years of National Service</Text>
           </MListItem>
         )}
         {step >= 5 && (
           <MListItem {...toggleOpacity} custom="enter">
-            <Text textStyle="body1" fontWeight="600">
-              OGP
-            </Text>
+            <Text textStyle="subHeading2">OGP</Text>
           </MListItem>
         )}
       </UnorderedList>
@@ -72,9 +68,7 @@ const ProgrammingBackground = ({ direction, step }) => {
       <UnorderedList spacing={8}>
         {step >= 1 && (
           <MListItem {...toggleOpacity} custom="enter">
-            <Text textStyle="body1" fontWeight="600">
-              C++
-            </Text>
+            <Text textStyle="subHeading2">C++</Text>
             <Text textStyle="body1" mt={4}>
               National Olympiad of Informatics (NOI)
             </Text>
@@ -82,9 +76,7 @@ const ProgrammingBackground = ({ direction, step }) => {
         )}
         {step >= 2 && (
           <MListItem {...toggleOpacity} custom="enter">
-            <Text textStyle="body1" fontWeight="600">
-              Python
-            </Text>
+            <Text textStyle="subHeading2">Python</Text>
             <Text textStyle="body1" mt={4}>
               H2 Computing
             </Text>
@@ -92,9 +84,7 @@ const ProgrammingBackground = ({ direction, step }) => {
         )}
         {step >= 3 && (
           <MListItem {...toggleOpacity} custom="enter">
-            <Text textStyle="body1" fontWeight="600">
-              HTML/CSS/JS
-            </Text>
+            <Text textStyle="subHeading2">HTML/CSS/JS</Text>
             <Text textStyle="body1" mt={4}>
               Lower Sec Infocomm lessons
             </Text>
@@ -152,9 +142,7 @@ const OverallLearnings = ({ direction, step }) => {
               h="100%"
               alignItems="flex-start"
             >
-              <Text textStyle="body1" fontWeight="600">
-                Frontend
-              </Text>
+              <Text textStyle="subHeading2">Frontend</Text>
               <UnorderedList spacing={8} mt={8}>
                 <ListItem>
                   <Text>React.js</Text>
@@ -176,9 +164,7 @@ const OverallLearnings = ({ direction, step }) => {
               h="100%"
               alignItems="flex-start"
             >
-              <Text textStyle="body1" fontWeight="600">
-                Backend
-              </Text>
+              <Text textStyle="subHeading2">Backend</Text>
               <UnorderedList spacing={8} mt={8}>
                 <ListItem>
                   <Text>Node.js</Text>
@@ -197,9 +183,7 @@ const OverallLearnings = ({ direction, step }) => {
               h="100%"
               alignItems="flex-start"
             >
-              <Text textStyle="body1" fontWeight="600">
-                AWS
-              </Text>
+              <Text textStyle="subHeading2">AWS</Text>
               <UnorderedList spacing={8} mt={8}>
                 <ListItem>
                   <Text>S3</Text>
@@ -221,9 +205,7 @@ const OverallLearnings = ({ direction, step }) => {
               h="100%"
               alignItems="flex-start"
             >
-              <Text textStyle="body1" fontWeight="600">
-                Working in a team
-              </Text>
+              <Text textStyle="subHeading2">Working in a team</Text>
               <UnorderedList spacing={8} mt={8}>
                 <ListItem>
                   <Text>Dealing with code created by not just me</Text>
@@ -245,7 +227,7 @@ const OverallLearnings = ({ direction, step }) => {
           <MText
             {...toggleOpacity}
             custom="enter"
-            textStyle="subHeading"
+            textStyle="subHeading1"
             mt={8}
           >
             and so much more
