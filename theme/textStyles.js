@@ -11,6 +11,10 @@ export const textStyles = {
     fontSize: "2xl",
     fontWeight: 600,
   },
+  subHeading2: {
+    fontSize: "xl",
+    fontWeight: 600,
+  },
   body1: {
     fontSize: "xl",
   },
