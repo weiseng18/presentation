@@ -433,6 +433,34 @@ const FinalImplementation = ({ direction, step }) => {
   )
 }
 
+const Tradeoffs = ({ direction, step }) => {
+  return (
+    <ContentSlide direction={direction} title="Tradeoffs">
+      <VStack spacing={8} alignItems="flex-start" w="100%">
+        {step >= 1 && (
+          <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
+            Different request ID
+          </MText>
+        )}
+        {step >= 2 && (
+          <UnorderedList spacing={8}>
+            <MListItem {...toggleOpacity} custom="enter">
+              <Text textStyle="body1">
+                Frontend: UUID in the address bar only
+              </Text>
+            </MListItem>
+            {step >= 3 && (
+              <MListItem {...toggleOpacity} custom="enter">
+                <Text textStyle="body1">Request API: Not used</Text>
+              </MListItem>
+            )}
+          </UnorderedList>
+        )}
+      </VStack>
+    </ContentSlide>
+  )
+}
+
 export default [
   Title,
   WhyImplement,
@@ -440,4 +468,5 @@ export default [
   HowToImplement,
   KeepIds,
   FinalImplementation,
+  Tradeoffs,
 ]
