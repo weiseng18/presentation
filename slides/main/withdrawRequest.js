@@ -1,10 +1,24 @@
 // base components
-import { Grid, HStack, List, ListIcon, ListItem, Text } from "@chakra-ui/layout"
+import {
+  Grid,
+  HStack,
+  List,
+  ListIcon,
+  ListItem,
+  Tbody,
+  Td,
+  Text,
+  Th,
+  Thead,
+  Tr,
+} from "@chakra-ui/react"
 import {
   MHStack,
   MList,
   MListItem,
+  MTable,
   MText,
+  MTr,
   MVStack,
 } from "../../components/MotionChakra"
 
@@ -321,4 +335,69 @@ const HowToImplement = ({ direction, step }) => {
   )
 }
 
-export default [Title, WhyImplement, Functionality, HowToImplement]
+const KeepIds = ({ direction, step }) => {
+  return (
+    <ContentSlide direction={direction} title="Keeping the same IDs">
+      <VStack w="100%" spacing={12}>
+        {step >= 1 && (
+          <MTable {...toggleOpacity} custom="enter">
+            <Thead>
+              <Tr>
+                <Th>
+                  <Text textStyle="body2">User action</Text>
+                </Th>
+                <Th w="60%">
+                  <Text textStyle="body2">Implementation</Text>
+                </Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              <Tr {...toggleOpacity} custom="enter">
+                <Td>Adds a dataset from a different org</Td>
+                <Td>Generate new approval and associate with the request</Td>
+              </Tr>
+              {step >= 2 && (
+                <MTr {...toggleOpacity} custom="enter">
+                  <Td>Adds a dataset from the same org</Td>
+                  <Td>Amend existing approval, requires table joins</Td>
+                </MTr>
+              )}
+              {step >= 3 && (
+                <MTr {...toggleOpacity} custom="enter">
+                  <Td>
+                    Removes a dataset, and there are
+                    <br />
+                    no more datasets from that org
+                  </Td>
+                  <Td>Remove association between approval and request</Td>
+                </MTr>
+              )}
+              {step >= 4 && (
+                <MTr {...toggleOpacity} custom="enter">
+                  <Td>
+                    Removes a dataset, and there are
+                    <br />
+                    still more datasets from that org
+                  </Td>
+                  <Td>Amend existing approval, requires table joins</Td>
+                </MTr>
+              )}
+            </Tbody>
+          </MTable>
+        )}
+        {step >= 5 && (
+          <MText
+            {...toggleOpacity}
+            custom="enter"
+            textStyle="subHeading1"
+            mt={8}
+          >
+            and even more cases
+          </MText>
+        )}
+      </VStack>
+    </ContentSlide>
+  )
+}
+
+export default [Title, WhyImplement, Functionality, HowToImplement, KeepIds]
