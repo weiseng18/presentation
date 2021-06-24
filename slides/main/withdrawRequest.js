@@ -1,6 +1,12 @@
 // base components
 import { Grid, HStack, List, ListIcon, ListItem, Text } from "@chakra-ui/layout"
-import { MHStack, MList, MListItem } from "../../components/MotionChakra"
+import {
+  MHStack,
+  MList,
+  MListItem,
+  MText,
+  MVStack,
+} from "../../components/MotionChakra"
 
 // slide components
 import ContentSlide from "../../components/ContentSlide"
@@ -18,6 +24,8 @@ import { FcCancel, FcUndo } from "react-icons/fc"
 import { MdEdit } from "react-icons/md"
 
 import { toggleOpacity } from "../../animations"
+import { useEffect, useState } from "react"
+import { UnorderedList, VStack } from "@chakra-ui/react"
 
 const Title = ({ direction, step }) => {
   return (
@@ -187,4 +195,130 @@ const Functionality = ({ direction, step }) => {
   )
 }
 
-export default [Title, WhyImplement, Functionality]
+const HowToImplement = ({ direction, step }) => {
+  const [opacity, setOpacity] = useState(1)
+  useEffect(() => {
+    if (step >= 3) setOpacity(0.2)
+    else setOpacity(1)
+  }, [step])
+
+  return (
+    <ContentSlide direction={direction} title="How to implement">
+      <Grid w="100%" templateColumns="repeat(2, 1fr)" gap={24} mt={4}>
+        {step >= 1 && (
+          <MVStack
+            spacing={12}
+            alignItems="flex-start"
+            {...toggleOpacity}
+            custom="enter"
+          >
+            <Text textStyle="subHeading1">Entities created</Text>
+            <List spacing={8}>
+              <ListItem>
+                <HStack spacing={0}>
+                  <MText animate={{ opacity: opacity }} textStyle="subHeading2">
+                    Request&nbsp;
+                  </MText>
+                  <MText animate={{ opacity: opacity }} textStyle="body2">
+                    (
+                  </MText>
+                  <MText textStyle="body2">request_id</MText>
+                  <MText animate={{ opacity: opacity }} textStyle="body2">
+                    , creator_id)
+                  </MText>
+                </HStack>
+              </ListItem>
+              <ListItem>
+                <HStack spacing={0}>
+                  <MText animate={{ opacity: opacity }} textStyle="subHeading2">
+                    RequestState&nbsp;
+                  </MText>
+                  <MText animate={{ opacity: opacity }} textStyle="body2">
+                    (
+                  </MText>
+                  <MText textStyle="body2">request_id</MText>
+                  <MText animate={{ opacity: opacity }} textStyle="body2">
+                    , request metadata)
+                  </MText>
+                </HStack>
+              </ListItem>
+              <ListItem>
+                <HStack spacing={0}>
+                  <MText animate={{ opacity: opacity }} textStyle="subHeading2">
+                    Approval&nbsp;
+                  </MText>
+                  <MText animate={{ opacity: opacity }} textStyle="body2">
+                    (
+                  </MText>
+                  <MText textStyle="body2">approval_id</MText>
+                  <MText animate={{ opacity: opacity }} textStyle="body2">
+                    , type,&nbsp;
+                  </MText>
+                  <MText textStyle="body2">request_id</MText>
+                  <MText animate={{ opacity: opacity }} textStyle="body2">
+                    ,&nbsp;
+                  </MText>
+                  <MText textStyle="body2">dependency_id</MText>
+                  <MText animate={{ opacity: opacity }} textStyle="body2">
+                    )
+                  </MText>
+                </HStack>
+              </ListItem>
+              <ListItem>
+                <HStack spacing={0}>
+                  <MText animate={{ opacity: opacity }} textStyle="subHeading2">
+                    ApprovalState&nbsp;
+                  </MText>
+                  <MText animate={{ opacity: opacity }} textStyle="body2">
+                    (
+                  </MText>
+                  <MText textStyle="body2">approval_id</MText>
+                  <MText animate={{ opacity: opacity }} textStyle="body2">
+                    , approval metadata)
+                  </MText>
+                </HStack>
+              </ListItem>
+              <ListItem>
+                <MHStack animate={{ opacity: opacity }} spacing={2}>
+                  <Text textStyle="subHeading2">RequestDataset</Text>
+                  <Text textStyle="body2">
+                    (1 approval &rarr; many RequestDatasets)
+                  </Text>
+                </MHStack>
+              </ListItem>
+              <ListItem>
+                <MHStack animate={{ opacity: opacity }} spacing={2}>
+                  <Text textStyle="subHeading2">RequestDatasetFields</Text>
+                  <Text textStyle="body2">(RequestDataset &rarr; fields)</Text>
+                </MHStack>
+              </ListItem>
+            </List>
+          </MVStack>
+        )}
+        <VStack alignItems="flex-start" spacing={12}>
+          {step >= 2 && (
+            <MText textStyle="subHeading1" {...toggleOpacity} custom="enter">
+              Edit the withdrawn request
+            </MText>
+          )}
+          <UnorderedList spacing={8}>
+            {step >= 3 && (
+              <MListItem {...toggleOpacity} custom="enter">
+                <Text textStyle="body1">
+                  Edit existing data, IDs stay the same
+                </Text>
+              </MListItem>
+            )}
+            {step >= 4 && (
+              <MListItem {...toggleOpacity} custom="enter">
+                <Text textStyle="body1">Create new data, IDs change</Text>
+              </MListItem>
+            )}
+          </UnorderedList>
+        </VStack>
+      </Grid>
+    </ContentSlide>
+  )
+}
+
+export default [Title, WhyImplement, Functionality, HowToImplement]
