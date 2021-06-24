@@ -400,4 +400,44 @@ const KeepIds = ({ direction, step }) => {
   )
 }
 
-export default [Title, WhyImplement, Functionality, HowToImplement, KeepIds]
+const FinalImplementation = ({ direction, step }) => {
+  return (
+    <ContentSlide direction={direction} title="Implementation">
+      <VStack spacing={8} alignItems="flex-start" w="100%">
+        {step >= 1 && (
+          <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
+            IDs can change
+          </MText>
+        )}
+        {step >= 2 && (
+          <UnorderedList spacing={8}>
+            <MListItem {...toggleOpacity} custom="enter">
+              <Text textStyle="body1">Withdraw submitted request</Text>
+            </MListItem>
+            {step >= 3 && (
+              <MListItem {...toggleOpacity} custom="enter">
+                <Text textStyle="body1">Hide withdrawn request</Text>
+              </MListItem>
+            )}
+            {step >= 4 && (
+              <MListItem {...toggleOpacity} custom="enter">
+                <Text textStyle="body1">
+                  Generate a copy of the withdrawn request automatically
+                </Text>
+              </MListItem>
+            )}
+          </UnorderedList>
+        )}
+      </VStack>
+    </ContentSlide>
+  )
+}
+
+export default [
+  Title,
+  WhyImplement,
+  Functionality,
+  HowToImplement,
+  KeepIds,
+  FinalImplementation,
+]
