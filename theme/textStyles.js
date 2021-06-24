@@ -7,11 +7,18 @@ export const textStyles = {
     fontSize: "4xl",
     fontWeight: 600,
   },
-  subHeading: {
+  subHeading1: {
     fontSize: "2xl",
+    fontWeight: 600,
+  },
+  subHeading2: {
+    fontSize: "xl",
     fontWeight: 600,
   },
   body1: {
     fontSize: "xl",
+  },
+  body2: {
+    fontSize: "lg",
   },
 }
