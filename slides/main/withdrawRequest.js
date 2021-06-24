@@ -1,12 +1,18 @@
 // base components
-import { HStack, List, ListIcon, Text } from "@chakra-ui/layout"
-import { MHStack, MListItem } from "../../components/MotionChakra"
+import { Grid, HStack, List, ListIcon, ListItem, Text } from "@chakra-ui/layout"
+import { MHStack, MList, MListItem } from "../../components/MotionChakra"
 
 // slide components
 import ContentSlide from "../../components/ContentSlide"
 
 // icons
-import { BsCheckCircle, BsPencilSquare, BsTrash } from "react-icons/bs"
+import {
+  BsCheck,
+  BsCheckCircle,
+  BsPencilSquare,
+  BsTrash,
+  BsCodeSlash,
+} from "react-icons/bs"
 import { FaStamp } from "react-icons/fa"
 import { FcCancel, FcUndo } from "react-icons/fc"
 import { MdEdit } from "react-icons/md"
@@ -86,28 +92,82 @@ const WhyImplement = ({ direction, step }) => {
 const Functionality = ({ direction, step }) => {
   return (
     <ContentSlide direction={direction} title="Possible functionality">
-      <List spacing={8}>
+      <Grid w="100%" templateColumns="repeat(2, 1fr)" gap={24} mt={4}>
         {step >= 1 && (
-          <MListItem {...toggleOpacity} custom="enter">
-            <HStack spacing={4}>
-              <ListIcon as={BsTrash} color="gray.500" fontSize="24px" />
-              <Text textStyle="body1">
-                Only withdrawal, users have to re-create
-              </Text>
-            </HStack>
-          </MListItem>
+          <MList spacing={8} {...toggleOpacity} custom="enter">
+            <ListItem pb={8}>
+              <HStack spacing={4}>
+                <ListIcon as={BsTrash} color="gray.500" fontSize="24px" />
+                <Text textStyle="body1" textDecoration="underline">
+                  Only withdrawal, users have to re-create
+                </Text>
+              </HStack>
+            </ListItem>
+            <ListItem>
+              <HStack spacing={4}>
+                <ListIcon as={BsCodeSlash} color="purple.500" fontSize="24px" />
+                <Text textStyle="body1">
+                  Users can withdraw a submitted request
+                  <br />
+                  (status: Withdrawn)
+                </Text>
+              </HStack>
+            </ListItem>
+            <ListItem>
+              <HStack spacing={4}>
+                <ListIcon as={BsCodeSlash} color="purple.500" fontSize="24px" />
+                <Text textStyle="body1">
+                  Admins do not see withdrawn request
+                </Text>
+              </HStack>
+            </ListItem>
+            <ListItem>
+              <HStack spacing={4}>
+                <ListIcon as={BsCheck} color="green.500" fontSize="24px" />
+                <Text textStyle="body1">
+                  Users can make a copy of withdrawn request manually
+                </Text>
+              </HStack>
+            </ListItem>
+          </MList>
         )}
         {step >= 2 && (
-          <MListItem {...toggleOpacity} custom="enter">
-            <HStack spacing={4}>
-              <ListIcon as={MdEdit} color="blue.500" fontSize="24px" />
-              <Text textStyle="body1">
-                Withdrawal, and edit the withdrawn request
-              </Text>
-            </HStack>
-          </MListItem>
+          <MList spacing={8} {...toggleOpacity} custom="enter">
+            <ListItem pb={8}>
+              <HStack spacing={4}>
+                <ListIcon as={MdEdit} color="blue.500" fontSize="24px" />
+                <Text textStyle="body1" textDecoration="underline">
+                  Withdrawal, and edit the withdrawn request
+                </Text>
+              </HStack>
+            </ListItem>
+            <ListItem>
+              <HStack spacing={4}>
+                <ListIcon as={BsCodeSlash} color="purple.500" fontSize="24px" />
+                <Text textStyle="body1">
+                  Users can withdraw a submitted request
+                  <br />
+                  (status: Draft)
+                </Text>
+              </HStack>
+            </ListItem>
+            <ListItem>
+              <HStack spacing={4}>
+                <ListIcon as={BsCodeSlash} color="purple.500" fontSize="24px" />
+                <Text textStyle="body1">
+                  Admins do not see withdrawn request
+                </Text>
+              </HStack>
+            </ListItem>
+            <ListItem>
+              <HStack spacing={4}>
+                <ListIcon as={BsCodeSlash} color="purple.500" fontSize="24px" />
+                <Text textStyle="body1">Users can edit withdrawn request</Text>
+              </HStack>
+            </ListItem>
+          </MList>
         )}
-      </List>
+      </Grid>
       {step >= 3 && (
         <MHStack
           {...toggleOpacity}
