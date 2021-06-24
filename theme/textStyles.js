@@ -14,4 +14,7 @@ export const textStyles = {
   body1: {
     fontSize: "xl",
   },
+  body2: {
+    fontSize: "lg",
+  },
 }
