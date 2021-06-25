@@ -13,7 +13,7 @@ const CaptionImageFull = ({ src, h, w, caption, isFull, adjust }) => {
       <MImage
         animate={{
           transform: `scale(${isFull ? 2.5 : 1}) translateX(${
-            adjust && isFull ? "-30%" : "0%"
+            adjust && isFull ? adjust : "0%"
           })`,
           zIndex: `${isFull ? 1000 : ""}`,
         }}
