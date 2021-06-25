@@ -5,6 +5,7 @@ import { MText } from "../../components/MotionChakra"
 import TwoColSlide from "../../components/TwoColSlide"
 
 import WithdrawRequest from "./withdrawRequest"
+import RevampSearch from "./revampSearch"
 
 const Title = ({ direction, step }) => {
   return (
@@ -50,4 +51,4 @@ const TitleTwo = ({ direction, step }) => {
   )
 }
 
-export default [Title, ...WithdrawRequest, TitleTwo]
+export default [Title, ...WithdrawRequest, TitleTwo, ...RevampSearch]
