@@ -10,6 +10,7 @@ import TwoColSlide from "../../components/TwoColSlide"
 
 // custom components
 import CaptionImageFull from "../../components/CaptionImageFull"
+import CaptionImageTransition from "../../components/CaptionImageTransition"
 
 import { toggleOpacity } from "../../animations"
 import { useEffect, useState } from "react"
@@ -62,6 +63,28 @@ const Content = ({ direction, step }) => {
           </MText>
         )}
       </VStack>
+    </ContentSlide>
+  )
+}
+
+const CaptionImageToText = ({ direction, step }) => {
+  return (
+    <ContentSlide direction={direction} title="Transform caption to text">
+      <Text textStyle="body1">Sample transitions</Text>
+      {step == 1 && (
+        <CaptionImageTransition
+          src="pixelart.png"
+          h="512"
+          w="910"
+          caption="pixelart editor"
+          layoutId="test"
+        />
+      )}
+      {step >= 2 && (
+        <MText layoutId="test" textStyle="body1">
+          Transition
+        </MText>
+      )}
     </ContentSlide>
   )
 }
@@ -137,4 +160,12 @@ const Final = ({ direction }) => {
   )
 }
 
-export default [PreTitle, Content, Images, Side, TransitionCrossSlide, Final]
+export default [
+  PreTitle,
+  Content,
+  CaptionImageToText,
+  Images,
+  Side,
+  TransitionCrossSlide,
+  Final,
+]
