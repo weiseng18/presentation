@@ -30,4 +30,24 @@ const Title = ({ direction, step }) => {
     </TwoColSlide>
   )
 }
-export default [Title, ...WithdrawRequest]
+
+const TitleTwo = ({ direction, step }) => {
+  return (
+    <TwoColSlide direction={direction} title="Vault">
+      <MText textStyle="body1" animate={{ transform: "scale(1)" }}>
+        Withdraw request
+      </MText>
+      <MText
+        textStyle="body1"
+        animate={{ transform: `scale(${step === 1 ? 2 : 1})` }}
+      >
+        Revamped search page
+      </MText>
+      <MText textStyle="body1" animate={{ transform: "scale(1)" }}>
+        Pre-approved datasets
+      </MText>
+    </TwoColSlide>
+  )
+}
+
+export default [Title, ...WithdrawRequest, TitleTwo]
