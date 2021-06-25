@@ -142,7 +142,7 @@ const OverallLearnings = ({ direction, step }) => {
               h="100%"
               alignItems="flex-start"
             >
-              <Text textStyle="subHeading2">Frontend</Text>
+              <Text textStyle="subHeading1">Frontend</Text>
               <UnorderedList spacing={8} mt={8}>
                 <ListItem>
                   <Text>React.js</Text>
@@ -164,7 +164,7 @@ const OverallLearnings = ({ direction, step }) => {
               h="100%"
               alignItems="flex-start"
             >
-              <Text textStyle="subHeading2">Backend</Text>
+              <Text textStyle="subHeading1">Backend</Text>
               <UnorderedList spacing={8} mt={8}>
                 <ListItem>
                   <Text>Node.js</Text>
@@ -183,7 +183,7 @@ const OverallLearnings = ({ direction, step }) => {
               h="100%"
               alignItems="flex-start"
             >
-              <Text textStyle="subHeading2">AWS</Text>
+              <Text textStyle="subHeading1">AWS</Text>
               <UnorderedList spacing={8} mt={8}>
                 <ListItem>
                   <Text>S3</Text>
@@ -205,7 +205,7 @@ const OverallLearnings = ({ direction, step }) => {
               h="100%"
               alignItems="flex-start"
             >
-              <Text textStyle="subHeading2">Working in a team</Text>
+              <Text textStyle="subHeading1">Working in a team</Text>
               <UnorderedList spacing={8} mt={8}>
                 <ListItem>
                   <Text>Dealing with code created by not just me</Text>
