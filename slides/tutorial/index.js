@@ -12,6 +12,10 @@ import TwoColSlide from "../../components/TwoColSlide"
 import CaptionImageFull from "../../components/CaptionImageFull"
 import CaptionImageTransition from "../../components/CaptionImageTransition"
 
+// syntax highlighting
+import SyntaxHighlighter from "react-syntax-highlighter"
+import { vs2015 } from "react-syntax-highlighter/dist/cjs/styles/hljs"
+
 import { toggleOpacity } from "../../animations"
 import { useEffect, useState } from "react"
 
@@ -147,7 +151,11 @@ const TransitionCrossSlide = ({ direction }) => {
       title="Transition to Title"
       layoutIdTitle="transition"
     >
-      <Text textStyle="body1">Placeholder content</Text>
+      <SyntaxHighlighter language="javascript" style={vs2015} showLineNumbers>
+        {
+          "const increment = (num) => num + 1\nconst decrement = (num) => num - 1\n\n// here is some indented code\nif ( decrement(increment(1)) === 1 )\n\tconsole.log('Same number')"
+        }
+      </SyntaxHighlighter>
     </ContentSlide>
   )
 }
