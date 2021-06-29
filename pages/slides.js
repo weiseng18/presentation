@@ -45,7 +45,7 @@ const Index = () => {
   const renderSlide = () => {
     const one = slides.slice(slide, slide + 1)
     return one.map((Component, index) => {
-      return <Component direction={direction} step={step} />
+      return <Component key={index} direction={direction} step={step} />
     })
   }
 
