@@ -11,6 +11,8 @@ import {
   Th,
   Thead,
   Tr,
+  UnorderedList,
+  VStack,
 } from "@chakra-ui/react"
 import {
   MHStack,
@@ -39,7 +41,6 @@ import { MdEdit } from "react-icons/md"
 
 import { toggleOpacity } from "../../animations"
 import { useEffect, useState } from "react"
-import { UnorderedList, VStack } from "@chakra-ui/react"
 
 const Title = ({ direction, step }) => {
   return (
