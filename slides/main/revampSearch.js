@@ -274,4 +274,28 @@ const ActualFeatures = ({ direction, step }) => {
   )
 }
 
-export default [Prior, Improvements, ActualFeatures]
+const ChakraSlide = ({ direction, step }) => {
+  return (
+    <ContentSlide direction={direction} title="Chakra UI">
+      <UnorderedList spacing={8}>
+        {step >= 1 && (
+          <MListItem textStyle="body1" {...toggleOpacity} custom="enter">
+            Chakra components are powerful
+          </MListItem>
+        )}
+        {step >= 2 && (
+          <MListItem textStyle="body1" {...toggleOpacity} custom="enter">
+            Chakra allows you to define a theme file
+          </MListItem>
+        )}
+        {step >= 3 && (
+          <MListItem textStyle="body1" {...toggleOpacity} custom="enter">
+            Inline CSS-in-JS made the workflow more seamless
+          </MListItem>
+        )}
+      </UnorderedList>
+    </ContentSlide>
+  )
+}
+
+export default [Prior, Improvements, ActualFeatures, ChakraSlide]
