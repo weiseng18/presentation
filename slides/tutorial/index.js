@@ -144,7 +144,20 @@ const Side = ({ direction, step }) => {
   )
 }
 
-const TransitionCrossSlide = ({ direction }) => {
+const TransitionCrossSlide = ({ direction, step }) => {
+  const [code, setCode] = useState("")
+
+  useEffect(() => {
+    if (step === 0)
+      setCode(
+        "const increment = (num) => num + 1\nconst decrement = (num) => num - 1"
+      )
+    else
+      setCode(
+        "const increment = (num) => num + 1\nconst decrement = (num) => num - 1\n\n// here is some indented code\nif ( decrement(increment(1)) === 1 )\n\tconsole.log('Same number')"
+      )
+  }, [step])
+
   return (
     <ContentSlide
       direction={direction}
@@ -152,9 +165,7 @@ const TransitionCrossSlide = ({ direction }) => {
       layoutIdTitle="transition"
     >
       <SyntaxHighlighter language="javascript" style={vs2015} showLineNumbers>
-        {
-          "const increment = (num) => num + 1\nconst decrement = (num) => num - 1\n\n// here is some indented code\nif ( decrement(increment(1)) === 1 )\n\tconsole.log('Same number')"
-        }
+        {code}
       </SyntaxHighlighter>
     </ContentSlide>
   )
