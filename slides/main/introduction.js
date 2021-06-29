@@ -2,6 +2,7 @@
 import {
   Flex,
   Grid,
+  List,
   ListItem,
   Text,
   UnorderedList,
@@ -25,7 +26,7 @@ import { toggleOpacity } from "../../animations"
 const BeforeOGP = ({ direction, step }) => {
   return (
     <ContentSlide direction={direction} title="Before OGP">
-      <UnorderedList spacing={8}>
+      <List spacing={8}>
         {step >= 1 && (
           <MListItem {...toggleOpacity} custom="enter">
             <MText textStyle="subHeading2" mb={8}>
@@ -57,7 +58,7 @@ const BeforeOGP = ({ direction, step }) => {
             <Text textStyle="subHeading2">OGP</Text>
           </MListItem>
         )}
-      </UnorderedList>
+      </List>
     </ContentSlide>
   )
 }
