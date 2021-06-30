@@ -1,13 +1,25 @@
 // base components
-import { Flex, Text, List, UnorderedList } from "@chakra-ui/react"
+import {
+  Flex,
+  Text,
+  List,
+  UnorderedList,
+  VStack,
+  AspectRatio,
+} from "@chakra-ui/react"
 import { MListItem } from "../../components/MotionChakra"
 
 // slide components
 import ContentSlide from "../../components/ContentSlide"
 
 // custom components
+import CaptionImage from "../../components/CaptionImage"
 import CaptionImageFull from "../../components/CaptionImageFull"
 import CaptionImageTransition from "../../components/CaptionImageTransition"
+
+// syntax highlighting
+import SyntaxHighlighter from "react-syntax-highlighter"
+import { vs2015 } from "react-syntax-highlighter/dist/cjs/styles/hljs"
 
 import { useEffect, useState } from "react"
 import { toggleOpacity } from "../../animations"
@@ -298,4 +310,179 @@ const ChakraSlide = ({ direction, step }) => {
   )
 }
 
-export default [Prior, Improvements, ActualFeatures, ChakraSlide]
+const Issues = ({ direction, step }) => {
+  const [code, setCode] = useState("")
+  const [showCode, setShowCode] = useState(false)
+
+  const [images, setImages] = useState([])
+
+  const setImagesHelper = (imagesInfo) => {
+    // add fixed prepend
+    imagesInfo.forEach((one) => {
+      one.src = "revamp search/" + one.src
+    })
+    setImages(imagesInfo)
+  }
+
+  const clearQueue = () => {
+    setImages([])
+  }
+
+  // controls the images and code
+  useEffect(() => {
+    switch (step) {
+      case 1:
+        setImagesHelper([
+          {
+            src: "bugs/1 title too long.png",
+            caption: "Dataset title too long",
+          },
+        ])
+        setShowCode(true)
+        setCode('<Text textStyle="subHeading1">\n\t{title}\n</Text>')
+        break
+      case 2:
+        setImagesHelper([
+          {
+            src: "fixes/1a.png",
+            caption: "noOfLines",
+          },
+        ])
+        setShowCode(true)
+        setCode(
+          '<Text noOfLines={2} textStyle="subHeading1">\n\t{title}\n</Text>'
+        )
+        break
+      case 3:
+        setImagesHelper([
+          {
+            src: "fixes/1a.png",
+            caption: "noOfLines",
+          },
+          {
+            src: "fixes/1b.png",
+            caption: "compare scrollHeight and clientHeight",
+          },
+        ])
+        setShowCode(true)
+        setCode(
+          'const titleRef = React.useRef()\n\nuseEffect(() => {\n  /* only show tooltip if the dataset title is truncated */\n  const scrollHeight = titleRef.current.scrollHeight\n  const clientHeight = titleRef.current.clientHeight\n  if (scrollHeight !== clientHeight) setTruncatedTitle(true)\n}, [titleRef.current])\n\n{truncatedTitle ? (\n  <Tooltip label={title}>\n    <Text noOfLines={2} ref={titleRef} textStyle="subHeading1">\n      {title}\n    </Text>\n  </Tooltip>\n) : (\n  <Text noOfLines={2} ref={titleRef} textStyle="subHeading1">\n    {title}\n  </Text>\n)}'
+        )
+        break
+      case 4:
+        setImagesHelper([
+          {
+            src: "bugs/2 agency name too long.png",
+            caption: "Agency name too long",
+          },
+        ])
+        setShowCode(true)
+        setCode('<Text textStyle="subHeading1">\n\t{agencyName}\n</Text>')
+        break
+      case 5:
+        setImagesHelper([
+          {
+            src: "fixes/2a.png",
+            caption: "noOfLines and abbreviation",
+          },
+        ])
+        setShowCode(true)
+        setCode(
+          '<Text noOfLines={1} textStyle="subHeading1">\n\t{agencyDisplay}\n</Text>'
+        )
+        break
+      case 6:
+        setImagesHelper([
+          {
+            src: "fixes/2a.png",
+            caption: "noOfLines",
+          },
+          {
+            src: "fixes/2b.png",
+            caption: "compare scrollHeight and clientHeight",
+          },
+        ])
+        setShowCode(true)
+        setCode(
+          'const agencyRef = React.useRef()\n\nuseEffect(() => {\n  /* only show tooltip if the agency name is truncated */\n  const scrollHeight = agencyRef.current.scrollHeight\n  const clientHeight = agencyRef.current.clientHeight\n  if (scrollHeight !== clientHeight) setTruncatedAgency(true)\n}, [agencyRef.current])\n\n{trunactedAgency ? (\n  <Tooltip label={agencyDisplay}>\n    <Text noOfLines={1} ref={agencyRef} textStyle="subHeading3">\n      {agencyDisplay}\n    </Text>\n  </Tooltip>\n) : (\n  <Text noOfLines={1} ref={agencyRef} textStyle="subHeading3">\n    {agencyDisplay}\n  </Text>\n)}'
+        )
+        break
+      case 7:
+        setImagesHelper([
+          {
+            src: "bugs/3 overlapping titles.png",
+            caption: "Overlapping titles",
+            h: "300",
+          },
+        ])
+        setShowCode(true)
+        setCode('<Text textStyle="subHeading1">\n\t{title}\n</Text>')
+        break
+      case 8:
+        setImagesHelper([
+          {
+            src: "fixes/3.png",
+            caption: "Set a fixed width",
+          },
+        ])
+        setShowCode(true)
+        setCode('<Text textStyle="subHeading1" w="100%">\n\t{title}\n</Text>')
+        break
+      default:
+        clearQueue()
+        setShowCode(false)
+    }
+  }, [step])
+
+  return (
+    <ContentSlide direction={direction} title="Issues faced">
+      {step === 0 && (
+        <Text textStyle="body1">
+          I encountered my fair share of issues while working on the UI
+        </Text>
+      )}
+      {step >= 1 && (
+        <Flex
+          position="absolute"
+          h="100vh"
+          w="100vw"
+          top="0"
+          left="0"
+          justifyContent="space-around"
+          alignItems="center"
+          bgColor="white"
+        >
+          {step <= 8 && (
+            <VStack spacing={8}>
+              {images &&
+                images.length &&
+                images.map((one) => (
+                  <CaptionImage
+                    src={one.src}
+                    caption={one.caption}
+                    h={one.h || 512 / images.length}
+                  />
+                ))}
+            </VStack>
+          )}
+          {showCode && (
+            <SyntaxHighlighter
+              language="javascript"
+              style={vs2015}
+              showLineNumbers
+            >
+              {code}
+            </SyntaxHighlighter>
+          )}
+          {step >= 9 && (
+            <video height="640" width="1024" controls>
+              <source src="revamp search/fixes/4.mov" />
+            </video>
+          )}
+        </Flex>
+      )}
+    </ContentSlide>
+  )
+}
+
+export default [Prior, Improvements, ActualFeatures, ChakraSlide, Issues]
