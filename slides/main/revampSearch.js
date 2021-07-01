@@ -339,7 +339,7 @@ const Issues = ({ direction, step }) => {
           },
         ])
         setShowCode(true)
-        setCode('<Text textStyle="subHeading1">\n\t{title}\n</Text>')
+        setCode('<Text textStyle="subHeading1">\n  {title}\n</Text>')
         break
       case 2:
         setImagesHelper([
@@ -350,7 +350,7 @@ const Issues = ({ direction, step }) => {
         ])
         setShowCode(true)
         setCode(
-          '<Text noOfLines={2} textStyle="subHeading1">\n\t{title}\n</Text>'
+          '<Text noOfLines={2} textStyle="subHeading1">\n  {title}\n</Text>'
         )
         break
       case 3:
@@ -377,7 +377,7 @@ const Issues = ({ direction, step }) => {
           },
         ])
         setShowCode(true)
-        setCode('<Text textStyle="subHeading1">\n\t{agencyName}\n</Text>')
+        setCode('<Text textStyle="subHeading1">\n  {agencyName}\n</Text>')
         break
       case 5:
         setImagesHelper([
@@ -388,7 +388,7 @@ const Issues = ({ direction, step }) => {
         ])
         setShowCode(true)
         setCode(
-          '<Text noOfLines={1} textStyle="subHeading1">\n\t{agencyDisplay}\n</Text>'
+          '<Text noOfLines={1} textStyle="subHeading1">\n  {agencyDisplay}\n</Text>'
         )
         break
       case 6:
@@ -416,7 +416,7 @@ const Issues = ({ direction, step }) => {
           },
         ])
         setShowCode(true)
-        setCode('<Text textStyle="subHeading1">\n\t{title}\n</Text>')
+        setCode('<Text textStyle="subHeading1">\n  {title}\n</Text>')
         break
       case 8:
         setImagesHelper([
@@ -426,7 +426,7 @@ const Issues = ({ direction, step }) => {
           },
         ])
         setShowCode(true)
-        setCode('<Text textStyle="subHeading1" w="100%">\n\t{title}\n</Text>')
+        setCode('<Text textStyle="subHeading1" w="100%">\n  {title}\n</Text>')
         break
       default:
         clearQueue()
