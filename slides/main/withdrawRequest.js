@@ -60,6 +60,14 @@ const Title = ({ direction, step }) => {
             </HStack>
           </MListItem>
         )}
+        {step >= 4 && (
+          <MListItem {...toggleOpacity} custom="enter">
+            <HStack spacing={4}>
+              <ListIcon as={FcUndo} color="blue.500" fontSize="24px" />
+              <Text textStyle="body1">Withdraw their request (if needed)</Text>
+            </HStack>
+          </MListItem>
+        )}
         {step >= 2 && (
           <MListItem {...toggleOpacity} custom="enter">
             <HStack spacing={4}>
