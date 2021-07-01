@@ -428,6 +428,12 @@ const Issues = ({ direction, step }) => {
         setShowCode(true)
         setCode('<Text textStyle="subHeading1" w="100%">\n  {title}\n</Text>')
         break
+      case 10:
+        setShowCode(true)
+        setCode(
+          'const BackToTopButton = () => {\n  /**\n   * 24px is the width/height excluding padding of 12px in all directions\n   *\n   * 32px is the y-distance to the top of the footer\n   * - bottom: 32px is for position sticky to work\n   * - mb: 32px is to make sure that there is a 32px gap between top of footer, and button\n   */\n  return (\n    <Box\n      float="right"\n      position="sticky"\n      h="24px"\n      w="24px"\n      right="32px"\n      bottom="32px"\n      mb="32px"\n      cursor="pointer"\n      p="12px"\n      bg="neutral.100"\n      borderRadius="100px"\n      onClick={() => {\n        window.scrollTo({\n          top: 0,\n          left: 0,\n          behavior: \'smooth\',\n        })\n      }}\n    >\n      <ChakraIcon type="arrowUp" boxSize="24px" margin="0" color="neutral.700" />\n    </Box>\n  )\n}'
+        )
+        break
       default:
         clearQueue()
         setShowCode(false)
@@ -474,7 +480,7 @@ const Issues = ({ direction, step }) => {
               {code}
             </SyntaxHighlighter>
           )}
-          {step >= 9 && (
+          {step === 9 && (
             <video height="640" width="1024" controls>
               <source src="revamp search/fixes/4.mov" />
             </video>
