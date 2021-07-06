@@ -439,32 +439,27 @@ const KeepIds = ({ direction, step }) => {
 const FinalImplementation = ({ direction, step }) => {
   return (
     <ContentSlide direction={direction} title="Implementation">
-      <VStack spacing={8} alignItems="flex-start" w="100%">
+      <List spacing={8}>
         {step >= 1 && (
-          <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
-            IDs can change
-          </MText>
+          <MListItem {...toggleOpacity} custom="enter">
+            <Text textStyle="body1">
+              Do not need to keep the same Approval IDs
+            </Text>
+          </MListItem>
         )}
         {step >= 2 && (
-          <UnorderedList spacing={8}>
-            <MListItem {...toggleOpacity} custom="enter">
-              <Text textStyle="body1">Withdraw submitted request</Text>
-            </MListItem>
-            {step >= 3 && (
-              <MListItem {...toggleOpacity} custom="enter">
-                <Text textStyle="body1">Hide withdrawn request</Text>
-              </MListItem>
-            )}
-            {step >= 4 && (
-              <MListItem {...toggleOpacity} custom="enter">
-                <Text textStyle="body1">
-                  Generate a copy of the withdrawn request automatically
-                </Text>
-              </MListItem>
-            )}
-          </UnorderedList>
+          <MListItem {...toggleOpacity} custom="enter">
+            <Text textStyle="body1">Mark approvals as Withdrawn</Text>
+            <UnorderedList mt={8} spacing={8}>
+              {step >= 3 && (
+                <MListItem pl={8} {...toggleOpacity} custom="enter">
+                  <Text textStyle="body1">Pending, Accepted, Rejected</Text>
+                </MListItem>
+              )}
+            </UnorderedList>
+          </MListItem>
         )}
-      </VStack>
+      </List>
     </ContentSlide>
   )
 }
