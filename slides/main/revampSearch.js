@@ -292,15 +292,20 @@ const ChakraSlide = ({ direction, step }) => {
       <UnorderedList spacing={8}>
         {step >= 1 && (
           <MListItem textStyle="body1" {...toggleOpacity} custom="enter">
-            Chakra components are powerful
+            Chakra components are very functional
           </MListItem>
         )}
         {step >= 2 && (
           <MListItem textStyle="body1" {...toggleOpacity} custom="enter">
-            Chakra allows you to define a theme file
+            Chakra is very suitable for OGP products
           </MListItem>
         )}
         {step >= 3 && (
+          <MListItem textStyle="body1" {...toggleOpacity} custom="enter">
+            Chakra allows you to define a theme file
+          </MListItem>
+        )}
+        {step >= 4 && (
           <MListItem textStyle="body1" {...toggleOpacity} custom="enter">
             Inline CSS-in-JS made the workflow more seamless
           </MListItem>
