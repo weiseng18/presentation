@@ -470,11 +470,11 @@ const Tradeoffs = ({ direction, step }) => {
       <VStack spacing={8} alignItems="flex-start" w="100%">
         {step >= 1 && (
           <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
-            Different request ID
+            Different approval ID
           </MText>
         )}
         {step >= 2 && (
-          <UnorderedList spacing={8}>
+          <UnorderedList pl={8} spacing={8}>
             <MListItem {...toggleOpacity} custom="enter">
               <Text textStyle="body1">
                 Frontend: UUID in the address bar only
@@ -482,10 +482,22 @@ const Tradeoffs = ({ direction, step }) => {
             </MListItem>
             {step >= 3 && (
               <MListItem {...toggleOpacity} custom="enter">
-                <Text textStyle="body1">Request API: Not used</Text>
+                <Text textStyle="body1">Approval API: Not used</Text>
               </MListItem>
             )}
           </UnorderedList>
+        )}
+        {step >= 4 && (
+          <>
+            <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
+              Filter away the withdrawn approvals
+            </MText>
+            <UnorderedList pl={8} spacing={8}>
+              <MListItem {...toggleOpacity} custom="enter">
+                <Text textStyle="body1">Can change to soft delete</Text>
+              </MListItem>
+            </UnorderedList>
+          </>
         )}
       </VStack>
     </ContentSlide>
