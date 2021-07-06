@@ -504,6 +504,84 @@ const Tradeoffs = ({ direction, step }) => {
   )
 }
 
+const TeamAndPurge = ({ direction, step }) => {
+  const [opacity, setOpacity] = useState(1)
+
+  useEffect(() => {
+    if (step >= 6) {
+      setOpacity(0.3)
+    } else setOpacity(1)
+  }, [step])
+
+  return (
+    <ContentSlide direction={direction} title="Teammates">
+      <MVStack
+        spacing={8}
+        alignItems="flex-start"
+        w="100%"
+        animate={{ opacity: opacity }}
+      >
+        {step >= 1 && (
+          <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
+            Specify team members
+          </MText>
+        )}
+        {step >= 2 && (
+          <UnorderedList pl={8} spacing={8}>
+            <MListItem {...toggleOpacity} custom="enter">
+              <Text textStyle="body1">1 approval for whole team</Text>
+            </MListItem>
+            {step >= 3 && (
+              <MListItem {...toggleOpacity} custom="enter">
+                <Text textStyle="body1">
+                  Everyone gets access to the datasets
+                </Text>
+              </MListItem>
+            )}
+          </UnorderedList>
+        )}
+        {step >= 4 && (
+          <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
+            Acknowledge purged datasets
+          </MText>
+        )}
+        {step >= 5 && (
+          <UnorderedList pl={8} spacing={8}>
+            <MListItem {...toggleOpacity} custom="enter">
+              <Text textStyle="body1">
+                Indicate that you have deleted the datasets locally
+              </Text>
+            </MListItem>
+          </UnorderedList>
+        )}
+      </MVStack>
+      <VStack spacing={8} mt={8} alignItems="flex-start" w="100%">
+        {step >= 6 && (
+          <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
+            Interactions
+          </MText>
+        )}
+        {step >= 7 && (
+          <UnorderedList pl={8} spacing={8}>
+            <MListItem {...toggleOpacity} custom="enter">
+              <Text textStyle="body1">
+                Each team member needs to indicate that they have purged
+              </Text>
+            </MListItem>
+            {step >= 8 && (
+              <MListItem {...toggleOpacity} custom="enter">
+                <Text textStyle="body1">
+                  Each team member needs write access
+                </Text>
+              </MListItem>
+            )}
+          </UnorderedList>
+        )}
+      </VStack>
+    </ContentSlide>
+  )
+}
+
 export default [
   Title,
   WhyImplement,
@@ -512,4 +590,5 @@ export default [
   KeepIds,
   FinalImplementation,
   Tradeoffs,
+  TeamAndPurge,
 ]
