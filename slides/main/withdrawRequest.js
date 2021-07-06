@@ -16,6 +16,7 @@ import {
 } from "@chakra-ui/react"
 
 import {
+  MFlex,
   MHStack,
   MList,
   MListItem,
@@ -43,6 +44,7 @@ import { MdEdit } from "react-icons/md"
 
 import { toggleOpacity } from "../../animations"
 import { useEffect, useState } from "react"
+import CaptionImage from "../../components/CaptionImage"
 
 const Title = ({ direction, step }) => {
   return (
@@ -601,6 +603,144 @@ const TeamAndPurge = ({ direction, step }) => {
   )
 }
 
+const TeamAndWithdraw = ({ direction, step }) => {
+  return (
+    <ContentSlide direction={direction} title="Team members and withdraw/edit">
+      <Grid w="100%" templateColumns="repeat(2, 1fr)" gap={24} mt={4}>
+        {step < 5 && (
+          <VStack spacing={8} alignItems="flex-start">
+            {step >= 1 && (
+              <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
+                General environment
+              </MText>
+            )}
+            {step >= 2 && (
+              <UnorderedList pl={8} spacing={8}>
+                <MListItem {...toggleOpacity} custom="enter">
+                  <Text textStyle="body1">
+                    All teammates can withdraw the request
+                  </Text>
+                </MListItem>
+                {step >= 3 && (
+                  <MListItem {...toggleOpacity} custom="enter">
+                    <Text textStyle="body1">
+                      All teammates can edit the withdrawn request
+                    </Text>
+                  </MListItem>
+                )}
+                {step >= 4 && (
+                  <MListItem {...toggleOpacity} custom="enter">
+                    <Text textStyle="body1">
+                      All teammates can edit a request before submission
+                    </Text>
+                  </MListItem>
+                )}
+              </UnorderedList>
+            )}
+          </VStack>
+        )}
+        <VStack spacing={8} alignItems="flex-start">
+          {step >= 5 && (
+            <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
+              Vault
+            </MText>
+          )}
+          {step >= 6 && (
+            <UnorderedList pl={8} spacing={8}>
+              <MListItem {...toggleOpacity} custom="enter">
+                <Text textStyle="body1">Cleaner in the processes</Text>
+              </MListItem>
+              {step >= 7 && (
+                <MListItem {...toggleOpacity} custom="enter">
+                  <Text textStyle="body1">Cleaner in the code</Text>
+                </MListItem>
+              )}
+            </UnorderedList>
+          )}
+        </VStack>
+        <VStack spacing={8} alignItems="flex-start">
+          {step >= 8 && (
+            <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
+              Strange interactions
+            </MText>
+          )}
+          {step >= 13 && (
+            <MUnorderedList
+              pl={8}
+              spacing={8}
+              {...toggleOpacity}
+              custom="enter"
+            >
+              <ListItem>
+                <Text textStyle="body1">
+                  Team member could assume the role of the "leader", without
+                  permission of the creator
+                </Text>
+              </ListItem>
+              <ListItem>
+                <Text textStyle="body1">
+                  Teammate can make unauthorized changes
+                </Text>
+              </ListItem>
+            </MUnorderedList>
+          )}
+        </VStack>
+      </Grid>
+      {step >= 9 && step <= 12 && (
+        <MFlex
+          position="absolute"
+          h="100vh"
+          w="100vw"
+          top="0"
+          left="0"
+          bgColor="white"
+          justifyContent="center"
+          alignItems="center"
+          {...toggleOpacity}
+          custom="enter"
+        >
+          {step === 9 && (
+            <VStack spacing={8}>
+              <Text textStyle="heading2">Daniel's Request</Text>
+              <CaptionImage
+                src="withdraw/team me.png"
+                h="384"
+                w="683"
+                caption="Added a team member"
+              />
+            </VStack>
+          )}
+          {step === 10 && (
+            <Text textStyle="subHeading1">What if I withdraw?</Text>
+          )}
+          {step === 11 && (
+            <VStack spacing={8}>
+              <Text textStyle="heading2">My Request</Text>
+              <CaptionImage
+                src="withdraw/team me.png"
+                h="384"
+                w="683"
+                caption="Editing withdrawn request"
+              />
+            </VStack>
+          )}
+          {step === 12 && (
+            <VStack spacing={8}>
+              <Text textStyle="heading2">My Request</Text>
+              <CaptionImage
+                src="withdraw/team daniel.png"
+                h="384"
+                w="683"
+                caption="Code helps to assume Daniel automatically becomes a team member"
+              />
+            </VStack>
+          )}
+        </MFlex>
+      )}
+    </ContentSlide>
+  )
+}
+
 export default [
   Title,
   WhyImplement,
@@ -610,4 +750,5 @@ export default [
   FinalImplementation,
   Tradeoffs,
   TeamAndPurge,
+  TeamAndWithdraw,
 ]
