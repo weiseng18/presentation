@@ -220,9 +220,15 @@ const Functionality = ({ direction, step }) => {
 
 const HowToImplement = ({ direction, step }) => {
   const [opacity, setOpacity] = useState(1)
+  const [opacityTwo, setOpacityTwo] = useState(1)
   useEffect(() => {
-    if (step >= 3) setOpacity(0.2)
-    else setOpacity(1)
+    if (step > 3) {
+      setOpacity(0.2)
+      setOpacityTwo(0.2)
+    } else if (step === 3) {
+      setOpacity(0.2)
+      setOpacityTwo(1)
+    } else setOpacity(1)
   }, [step])
 
   return (
@@ -245,7 +251,9 @@ const HowToImplement = ({ direction, step }) => {
                   <MText animate={{ opacity: opacity }} textStyle="body2">
                     (
                   </MText>
-                  <MText textStyle="body2">request_id</MText>
+                  <MText animate={{ opacity: opacityTwo }} textStyle="body2">
+                    request_id
+                  </MText>
                   <MText animate={{ opacity: opacity }} textStyle="body2">
                     , creator_id)
                   </MText>
@@ -259,7 +267,9 @@ const HowToImplement = ({ direction, step }) => {
                   <MText animate={{ opacity: opacity }} textStyle="body2">
                     (
                   </MText>
-                  <MText textStyle="body2">request_id</MText>
+                  <MText animate={{ opacity: opacityTwo }} textStyle="body2">
+                    request_id
+                  </MText>
                   <MText animate={{ opacity: opacity }} textStyle="body2">
                     , request metadata)
                   </MText>
@@ -273,15 +283,21 @@ const HowToImplement = ({ direction, step }) => {
                   <MText animate={{ opacity: opacity }} textStyle="body2">
                     (
                   </MText>
-                  <MText textStyle="body2">approval_id</MText>
+                  <MText animate={{ opacity: opacityTwo }} textStyle="body2">
+                    approval_id
+                  </MText>
                   <MText animate={{ opacity: opacity }} textStyle="body2">
                     , type,&nbsp;
                   </MText>
-                  <MText textStyle="body2">request_id</MText>
+                  <MText animate={{ opacity: opacityTwo }} textStyle="body2">
+                    request_id
+                  </MText>
                   <MText animate={{ opacity: opacity }} textStyle="body2">
                     ,&nbsp;
                   </MText>
-                  <MText textStyle="body2">dependency_id</MText>
+                  <MText animate={{ opacity: opacityTwo }} textStyle="body2">
+                    dependency_id
+                  </MText>
                   <MText animate={{ opacity: opacity }} textStyle="body2">
                     )
                   </MText>
@@ -295,19 +311,26 @@ const HowToImplement = ({ direction, step }) => {
                   <MText animate={{ opacity: opacity }} textStyle="body2">
                     (
                   </MText>
-                  <MText textStyle="body2">approval_id</MText>
+                  <MText animate={{ opacity: opacityTwo }} textStyle="body2">
+                    approval_id
+                  </MText>
                   <MText animate={{ opacity: opacity }} textStyle="body2">
                     , approval metadata)
                   </MText>
                 </HStack>
               </ListItem>
               <ListItem>
-                <MHStack animate={{ opacity: opacity }} spacing={2}>
-                  <Text textStyle="subHeading2">RequestDataset</Text>
-                  <Text textStyle="body2">
+                <HStack spacing={2}>
+                  <MText animate={{ opacity: opacity }} textStyle="subHeading2">
+                    RequestDataset
+                  </MText>
+                  <MText
+                    animate={{ opacity: opacityTwo === 0.2 ? 1 : opacity }}
+                    textStyle="body2"
+                  >
                     (1 approval &rarr; many RequestDatasets)
-                  </Text>
-                </MHStack>
+                  </MText>
+                </HStack>
               </ListItem>
               <ListItem>
                 <MHStack animate={{ opacity: opacity }} spacing={2}>
@@ -319,12 +342,14 @@ const HowToImplement = ({ direction, step }) => {
           </MVStack>
         )}
         <VStack alignItems="flex-start" spacing={12}>
-          {step >= 2 && (
-            <MText textStyle="subHeading1" {...toggleOpacity} custom="enter">
-              Edit the withdrawn request
-            </MText>
-          )}
           <UnorderedList spacing={8}>
+            {step >= 2 && (
+              <MListItem {...toggleOpacity} custom="enter">
+                <Text textStyle="body1">
+                  Withdraw and edit withdrawn request
+                </Text>
+              </MListItem>
+            )}
             {step >= 3 && (
               <MListItem {...toggleOpacity} custom="enter">
                 <Text textStyle="body1">
@@ -334,7 +359,9 @@ const HowToImplement = ({ direction, step }) => {
             )}
             {step >= 4 && (
               <MListItem {...toggleOpacity} custom="enter">
-                <Text textStyle="body1">Create new data, IDs change</Text>
+                <Text textStyle="body1">
+                  Note that 1 approval is for 1 organisation
+                </Text>
               </MListItem>
             )}
           </UnorderedList>
