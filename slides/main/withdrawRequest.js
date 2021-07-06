@@ -515,69 +515,91 @@ const TeamAndPurge = ({ direction, step }) => {
 
   return (
     <ContentSlide direction={direction} title="Team members and purge">
-      <MVStack
-        spacing={8}
-        alignItems="flex-start"
-        w="100%"
-        animate={{ opacity: opacity }}
-      >
-        {step >= 1 && (
-          <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
-            Specify team members
-          </MText>
-        )}
-        {step >= 2 && (
-          <UnorderedList pl={8} spacing={8}>
-            <MListItem {...toggleOpacity} custom="enter">
-              <Text textStyle="body1">1 approval for whole team</Text>
-            </MListItem>
-            {step >= 3 && (
+      <Grid w="100%" templateColumns="repeat(2, 1fr)" gap={24} mt={4}>
+        <MVStack
+          spacing={8}
+          alignItems="flex-start"
+          animate={{ opacity: opacity }}
+        >
+          {step >= 1 && (
+            <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
+              Specify team members
+            </MText>
+          )}
+          {step >= 2 && (
+            <UnorderedList pl={8} spacing={8}>
+              <MListItem {...toggleOpacity} custom="enter">
+                <Text textStyle="body1">1 approval for whole team</Text>
+              </MListItem>
+              {step >= 3 && (
+                <MListItem {...toggleOpacity} custom="enter">
+                  <Text textStyle="body1">
+                    Everyone gets access to the datasets
+                  </Text>
+                </MListItem>
+              )}
+            </UnorderedList>
+          )}
+          {step >= 4 && (
+            <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
+              Acknowledge purged datasets
+            </MText>
+          )}
+          {step >= 5 && (
+            <UnorderedList pl={8} spacing={8}>
               <MListItem {...toggleOpacity} custom="enter">
                 <Text textStyle="body1">
-                  Everyone gets access to the datasets
+                  Indicate that you have deleted the datasets locally
                 </Text>
               </MListItem>
-            )}
-          </UnorderedList>
-        )}
-        {step >= 4 && (
-          <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
-            Acknowledge purged datasets
-          </MText>
-        )}
-        {step >= 5 && (
-          <UnorderedList pl={8} spacing={8}>
-            <MListItem {...toggleOpacity} custom="enter">
-              <Text textStyle="body1">
-                Indicate that you have deleted the datasets locally
-              </Text>
-            </MListItem>
-          </UnorderedList>
-        )}
-      </MVStack>
-      <VStack spacing={8} mt={8} alignItems="flex-start" w="100%">
-        {step >= 6 && (
-          <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
-            Interactions
-          </MText>
-        )}
-        {step >= 7 && (
-          <UnorderedList pl={8} spacing={8}>
-            <MListItem {...toggleOpacity} custom="enter">
-              <Text textStyle="body1">
-                Each team member needs to indicate that they have purged
-              </Text>
-            </MListItem>
-            {step >= 8 && (
+            </UnorderedList>
+          )}
+        </MVStack>
+        <VStack spacing={8} alignItems="flex-start">
+          {step >= 6 && (
+            <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
+              Interactions
+            </MText>
+          )}
+          {step >= 7 && (
+            <UnorderedList pl={8} spacing={8}>
               <MListItem {...toggleOpacity} custom="enter">
                 <Text textStyle="body1">
-                  Each team member needs write access
+                  Each team member needs to indicate that they have purged
                 </Text>
               </MListItem>
-            )}
-          </UnorderedList>
-        )}
-      </VStack>
+              {step >= 8 && (
+                <MListItem {...toggleOpacity} custom="enter">
+                  <Text textStyle="body1">
+                    Each team member needs write access
+                  </Text>
+                </MListItem>
+              )}
+            </UnorderedList>
+          )}
+          {step >= 9 && (
+            <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
+              By adding withdraw request feature
+            </MText>
+          )}
+          {step >= 10 && (
+            <UnorderedList pl={8} spacing={8}>
+              <MListItem {...toggleOpacity} custom="enter">
+                <Text textStyle="body1">
+                  Team has write access, so can withdraw
+                </Text>
+              </MListItem>
+              {step >= 11 && (
+                <MListItem {...toggleOpacity} custom="enter">
+                  <Text textStyle="body1">
+                    Separate check that user attempting to edit is the creator
+                  </Text>
+                </MListItem>
+              )}
+            </UnorderedList>
+          )}
+        </VStack>
+      </Grid>
     </ContentSlide>
   )
 }
