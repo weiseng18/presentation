@@ -514,7 +514,7 @@ const TeamAndPurge = ({ direction, step }) => {
   }, [step])
 
   return (
-    <ContentSlide direction={direction} title="Teammates">
+    <ContentSlide direction={direction} title="Team members and purge">
       <MVStack
         spacing={8}
         alignItems="flex-start"
