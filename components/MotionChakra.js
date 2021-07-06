@@ -8,6 +8,7 @@ import {
   Table,
   Text,
   Tr,
+  UnorderedList,
   VStack,
 } from "@chakra-ui/react"
 
@@ -21,6 +22,18 @@ const MListItem = motion(ListItem)
 const MTable = motion(Table)
 const MText = motion(Text)
 const MTr = motion(Tr)
+const MUnorderedList = motion(UnorderedList)
 const MVStack = motion(VStack)
 
-export { MFlex, MHStack, MImage, MList, MListItem, MTable, MText, MTr, MVStack }
+export {
+  MFlex,
+  MHStack,
+  MImage,
+  MList,
+  MListItem,
+  MTable,
+  MText,
+  MTr,
+  MUnorderedList,
+  MVStack,
+}
