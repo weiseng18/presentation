@@ -14,6 +14,7 @@ import {
   UnorderedList,
   VStack,
 } from "@chakra-ui/react"
+
 import {
   MHStack,
   MList,
@@ -21,6 +22,7 @@ import {
   MTable,
   MText,
   MTr,
+  MUnorderedList,
   MVStack,
 } from "../../components/MotionChakra"
 
@@ -516,18 +518,24 @@ const TeamAndPurge = ({ direction, step }) => {
   return (
     <ContentSlide direction={direction} title="Team members and purge">
       <Grid w="100%" templateColumns="repeat(2, 1fr)" gap={24} mt={4}>
-        <MVStack
-          spacing={8}
-          alignItems="flex-start"
-          animate={{ opacity: opacity }}
-        >
+        <VStack spacing={8} alignItems="flex-start">
           {step >= 1 && (
             <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
               Specify team members
             </MText>
           )}
+          {step >= 7 && (
+            <MUnorderedList pl={8} spacing={8} {...toggleOpacity}>
+              <ListItem custom="enter">
+                <Text textStyle="body1">
+                  Each team member needs to indicate that they have purged the
+                  dataset(s)
+                </Text>
+              </ListItem>
+            </MUnorderedList>
+          )}
           {step >= 2 && (
-            <UnorderedList pl={8} spacing={8}>
+            <MUnorderedList pl={8} spacing={8} animate={{ opacity: opacity }}>
               <MListItem {...toggleOpacity} custom="enter">
                 <Text textStyle="body1">1 approval for whole team</Text>
               </MListItem>
@@ -538,45 +546,33 @@ const TeamAndPurge = ({ direction, step }) => {
                   </Text>
                 </MListItem>
               )}
-            </UnorderedList>
+            </MUnorderedList>
           )}
           {step >= 4 && (
             <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
               Acknowledge purged datasets
             </MText>
           )}
+          {step >= 8 && (
+            <MUnorderedList pl={8} spacing={8} {...toggleOpacity}>
+              <ListItem custom="enter">
+                <Text textStyle="body1">
+                  Each team member needs write access
+                </Text>
+              </ListItem>
+            </MUnorderedList>
+          )}
           {step >= 5 && (
-            <UnorderedList pl={8} spacing={8}>
+            <MUnorderedList pl={8} spacing={8} animate={{ opacity: opacity }}>
               <MListItem {...toggleOpacity} custom="enter">
                 <Text textStyle="body1">
                   Indicate that you have deleted the datasets locally
                 </Text>
               </MListItem>
-            </UnorderedList>
+            </MUnorderedList>
           )}
-        </MVStack>
+        </VStack>
         <VStack spacing={8} alignItems="flex-start">
-          {step >= 6 && (
-            <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
-              Interactions
-            </MText>
-          )}
-          {step >= 7 && (
-            <UnorderedList pl={8} spacing={8}>
-              <MListItem {...toggleOpacity} custom="enter">
-                <Text textStyle="body1">
-                  Each team member needs to indicate that they have purged
-                </Text>
-              </MListItem>
-              {step >= 8 && (
-                <MListItem {...toggleOpacity} custom="enter">
-                  <Text textStyle="body1">
-                    Each team member needs write access
-                  </Text>
-                </MListItem>
-              )}
-            </UnorderedList>
-          )}
           {step >= 9 && (
             <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
               By adding withdraw request feature
@@ -586,7 +582,8 @@ const TeamAndPurge = ({ direction, step }) => {
             <UnorderedList pl={8} spacing={8}>
               <MListItem {...toggleOpacity} custom="enter">
                 <Text textStyle="body1">
-                  Team has write access, so can withdraw
+                  Team has write access, so can every team member can withdraw
+                  the request
                 </Text>
               </MListItem>
               {step >= 11 && (
