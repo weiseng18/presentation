@@ -741,6 +741,31 @@ const TeamAndWithdraw = ({ direction, step }) => {
   )
 }
 
+const TeamWithdrawImplementation = ({ direction, step }) => {
+  return (
+    <ContentSlide
+      direction={direction}
+      title="Should team members see withdraw button?"
+    >
+      <UnorderedList pl={8} spacing={8}>
+        {step >= 1 && (
+          <MListItem {...toggleOpacity} custom="enter">
+            <Text textStyle="body1">Not quite</Text>
+          </MListItem>
+        )}
+        {step >= 2 && (
+          <MListItem {...toggleOpacity} custom="enter">
+            <Text textStyle="body1">
+              Team members are presented with a leave request button, to leave
+              the request instead
+            </Text>
+          </MListItem>
+        )}
+      </UnorderedList>
+    </ContentSlide>
+  )
+}
+
 export default [
   Title,
   WhyImplement,
@@ -751,4 +776,5 @@ export default [
   Tradeoffs,
   TeamAndPurge,
   TeamAndWithdraw,
+  TeamWithdrawImplementation,
 ]
