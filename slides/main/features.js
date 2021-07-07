@@ -20,23 +20,26 @@ const Title = ({ direction, step }) => {
       )}
       {step >= 2 && (
         <MText textStyle="body1" animate={{ transform: "scale(1)" }}>
-          Revamped search page
+          Datasets refactoring
         </MText>
       )}
       {step >= 3 && (
         <MText textStyle="body1" animate={{ transform: "scale(1)" }}>
-          Pre-approved datasets
+          Revamped search page
         </MText>
       )}
     </TwoColSlide>
   )
 }
 
-const TitleTwo = ({ direction, step }) => {
+const TitleThree = ({ direction, step }) => {
   return (
     <TwoColSlide direction={direction} title="Vault">
       <MText textStyle="body1" animate={{ transform: "scale(1)" }}>
         Withdraw request
+      </MText>
+      <MText textStyle="body1" animate={{ transform: "scale(1)" }}>
+        Datasets refactoring
       </MText>
       <MText
         textStyle="body1"
@@ -44,11 +47,8 @@ const TitleTwo = ({ direction, step }) => {
       >
         Revamped search page
       </MText>
-      <MText textStyle="body1" animate={{ transform: "scale(1)" }}>
-        Pre-approved datasets
-      </MText>
     </TwoColSlide>
   )
 }
 
-export default [Title, ...WithdrawRequest, TitleTwo, ...RevampSearch]
+export default [Title, ...WithdrawRequest, TitleThree, ...RevampSearch]
