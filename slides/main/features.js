@@ -5,6 +5,7 @@ import { MText } from "../../components/MotionChakra"
 import TwoColSlide from "../../components/TwoColSlide"
 
 import WithdrawRequest from "./withdrawRequest"
+import RefactorDatasets from "./refactorDatasets"
 import RevampSearch from "./revampSearch"
 
 const Title = ({ direction, step }) => {
@@ -41,6 +42,7 @@ const TitleTwo = ({ direction, step }) => {
       <MText
         textStyle="body1"
         animate={{ transform: `scale(${step === 1 ? 2 : 1})` }}
+        layoutId={step >= 1 && "refactor"}
       >
         Datasets refactoring
       </MText>
@@ -74,6 +76,7 @@ export default [
   Title,
   ...WithdrawRequest,
   TitleTwo,
+  ...RefactorDatasets,
   TitleThree,
   ...RevampSearch,
 ]
