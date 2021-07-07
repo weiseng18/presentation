@@ -9,7 +9,22 @@ import slides from "../slides/main"
 const Index = () => {
   // this array should contain 1 value per slide
   const STEP_MAX = [
-    0, 5, 3, 4, 5, 4, 4, 2, 3, 4, 5, 3, 4, 11, 13, 2, 1, 1, 6, 6, 13, 4, 10, 0,
+    // Title
+    0,
+    // Intro
+    5, 3, 4, 5,
+    // Features Intro (all + withdraw)
+    4,
+    // Withdraw Request
+    4, 2, 3, 4, 5, 3, 4, 11, 13, 2,
+    // Features Intro (dataset refactoring)
+    1,
+    // Features Intro (revamp search)
+    1,
+    // Revamp Search
+    6, 6, 13, 4, 10,
+    // End
+    0,
   ]
 
   const [slide, setSlide] = useState(0)
