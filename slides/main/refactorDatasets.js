@@ -1,7 +1,7 @@
 // base components
-import { List, Text, UnorderedList } from "@chakra-ui/react"
+import { List, Text, UnorderedList, VStack } from "@chakra-ui/react"
 
-import { MListItem } from "../../components/MotionChakra"
+import { MListItem, MText } from "../../components/MotionChakra"
 
 // slide components
 import ContentSlide from "../../components/ContentSlide"
@@ -76,4 +76,52 @@ const Context = ({ direction, step }) => {
   )
 }
 
-export default [Scope, Context]
+const OnlyCSV = ({ direction, step }) => {
+  return (
+    <ContentSlide direction={direction} title="Datasets refactoring">
+      <VStack spacing={8} alignItems="flex-start">
+        {step >= 1 && (
+          <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
+            Vault only accepted CSV files
+          </MText>
+        )}
+        <UnorderedList pl={4} mt={8} spacing={8}>
+          {step >= 2 && (
+            <MListItem {...toggleOpacity} custom="enter">
+              <Text textStyle="body1">Cannot ingest into datastore</Text>
+            </MListItem>
+          )}
+          {step >= 3 && (
+            <MListItem {...toggleOpacity} custom="enter">
+              <Text textStyle="body1">Current bucket data has TTL of 24h</Text>
+            </MListItem>
+          )}
+          {step >= 4 && (
+            <MListItem {...toggleOpacity} custom="enter">
+              <Text textStyle="body1">
+                In a request, we require users to specify what fields they want
+              </Text>
+            </MListItem>
+          )}
+          {step >= 5 && (
+            <MListItem {...toggleOpacity} custom="enter">
+              <Text textStyle="body1">
+                In the dataset creation form, users can specify a data
+                dictionary
+              </Text>
+            </MListItem>
+          )}
+          {step >= 6 && (
+            <MListItem {...toggleOpacity} custom="enter">
+              <Text textStyle="body1">
+                CSV-specific validation, requirement rather than recommendation
+              </Text>
+            </MListItem>
+          )}
+        </UnorderedList>
+      </VStack>
+    </ContentSlide>
+  )
+}
+
+export default [Scope, Context, OnlyCSV]
