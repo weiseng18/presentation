@@ -325,4 +325,30 @@ const DatasetFlows = ({ direction, step }) => {
   )
 }
 
-export default [Scope, Context, OnlyCSV, DatasetFlows]
+const Aim = ({ direction, step }) => {
+  return (
+    <ContentSlide direction={direction} title="Aim">
+      <UnorderedList spacing={8}>
+        {step >= 1 && (
+          <MListItem {...toggleOpacity} custom="enter">
+            <Text textStyle="body1">Create Dataset class/subclasses</Text>
+          </MListItem>
+        )}
+        {step >= 2 && (
+          <MListItem {...toggleOpacity} custom="enter">
+            <Text textStyle="body1">
+              Controller functions can focus on high-level logic
+            </Text>
+          </MListItem>
+        )}
+        {step >= 3 && (
+          <MListItem {...toggleOpacity} custom="enter">
+            <Text textStyle="body1">Code logic is easier to follow</Text>
+          </MListItem>
+        )}
+      </UnorderedList>
+    </ContentSlide>
+  )
+}
+
+export default [Scope, Context, OnlyCSV, DatasetFlows, Aim]
