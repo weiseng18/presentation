@@ -1,6 +1,7 @@
 // base components
 import {
   Box,
+  Grid,
   List,
   Text,
   Tbody,
@@ -351,4 +352,63 @@ const Aim = ({ direction, step }) => {
   )
 }
 
-export default [Scope, Context, OnlyCSV, DatasetFlows, Aim]
+const GeneralApproach = ({ direction, step }) => {
+  return (
+    <ContentSlide direction={direction} title="General Approach">
+      <Grid w="100%" templateColumns="repeat(2, 1fr)" gap={24} mt={4}>
+        <VStack spacing={8} alignItems="flex-start">
+          {step >= 1 && (
+            <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
+              MetadataOnlyDataset, IngestedDataset, NonIngestedDataset
+            </MText>
+          )}
+          <UnorderedList pl={4} mt={8} spacing={8}>
+            {step >= 2 && (
+              <MListItem {...toggleOpacity} custom="enter">
+                <Text textStyle="body1">Stored in datastore, or S3</Text>
+              </MListItem>
+            )}
+            {step >= 3 && (
+              <MListItem {...toggleOpacity} custom="enter">
+                <Text textStyle="body1">Validate or not</Text>
+              </MListItem>
+            )}
+            {step >= 4 && (
+              <MListItem {...toggleOpacity} custom="enter">
+                <Text textStyle="body1">Can apply a subset</Text>
+              </MListItem>
+            )}
+            {step >= 5 && (
+              <MListItem {...toggleOpacity} custom="enter">
+                <Text textStyle="body1">Can append</Text>
+              </MListItem>
+            )}
+          </UnorderedList>
+        </VStack>
+        <VStack spacing={8} alignItems="flex-start">
+          {step >= 6 && (
+            <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
+              Pre-approved or not
+            </MText>
+          )}
+          <UnorderedList pl={4} mt={8} spacing={8}>
+            {step >= 7 && (
+              <MListItem {...toggleOpacity} custom="enter">
+                <Text textStyle="body1">Dataset should not be requested</Text>
+              </MListItem>
+            )}
+            {step >= 8 && (
+              <MListItem {...toggleOpacity} custom="enter">
+                <Text textStyle="body1">
+                  Should not download non-pre-approved directly
+                </Text>
+              </MListItem>
+            )}
+          </UnorderedList>
+        </VStack>
+      </Grid>
+    </ContentSlide>
+  )
+}
+
+export default [Scope, Context, OnlyCSV, DatasetFlows, Aim, GeneralApproach]
