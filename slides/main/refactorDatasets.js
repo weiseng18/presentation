@@ -6,12 +6,14 @@ import { MFlex, MListItem, MTd, MText } from "../../components/MotionChakra"
 // slide components
 import ContentSlide from "../../components/ContentSlide"
 
+// custom components
+import DatasetTable from "../../components/custom/DatasetTable"
+
 // syntax highlighting
 import SyntaxHighlighter from "react-syntax-highlighter"
 import { vs2015 } from "react-syntax-highlighter/dist/cjs/styles/hljs"
 
 import { toggleOpacity } from "../../animations"
-import DatasetTable from "../../components/custom/DatasetTable"
 
 const Scope = ({ direction, step }) => {
   return (
