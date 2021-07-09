@@ -49,20 +49,21 @@ const DatasetTable = ({ step, hasSteps = true }) => {
     let arr
     if (which === 0) {
       arr = [1, 1, 1, 1, 1]
+      setOpacity(arr)
     }
     // if shift key was pressed, then add on, rather than toggle.
     else if (shiftKey) {
-      // currently does not work
-      // some strange react state thing
-      arr = opacity
-      arr[which - 1] = 1
+      setOpacity((prevOpacity) => {
+        prevOpacity[which - 1] = prevOpacity[which - 1] === 1 ? 0.1 : 1
+        return [...prevOpacity]
+      })
     }
     // else, turn off everything else, and turn on current col
     else {
       arr = [0.1, 0.1, 0.1, 0.1, 0.1]
       arr[which - 1] = 1
+      setOpacity(arr)
     }
-    setOpacity(arr)
   }
 
   return (
