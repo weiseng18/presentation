@@ -1,5 +1,6 @@
 // base components
 import {
+  Box,
   List,
   Text,
   Tbody,
@@ -13,6 +14,7 @@ import {
 } from "@chakra-ui/react"
 
 import {
+  MFlex,
   MListItem,
   MTable,
   MTd,
@@ -22,6 +24,10 @@ import {
 
 // slide components
 import ContentSlide from "../../components/ContentSlide"
+
+// syntax highlighting
+import SyntaxHighlighter from "react-syntax-highlighter"
+import { vs2015 } from "react-syntax-highlighter/dist/cjs/styles/hljs"
 
 import { toggleOpacity } from "../../animations"
 import { useEffect, useState } from "react"
@@ -290,6 +296,30 @@ const DatasetFlows = ({ direction, step }) => {
             )}
           </Tbody>
         </MTable>
+      )}
+      {step === 5 && (
+        <MFlex
+          position="absolute"
+          h="100vh"
+          w="100vw"
+          p={8}
+          top="0"
+          left="0"
+          bgColor="white"
+          justifyContent="center"
+          {...toggleOpacity}
+          custom="enter"
+        >
+          <SyntaxHighlighter
+            language="javascript"
+            style={vs2015}
+            showLineNumbers
+          >
+            {
+              "export const validateDataset = async (req: Request, res: Response, next: NextFunction) => {\n  try {\n    // Middleware for validation\n    // Validate req.body against the DataSchema\n    // including nested validation of data_dictionary\n    const validRequestBody = ajv.validate(DatasetSchema, req.body)\n    if (!validRequestBody) {\n      const err = ajv.errorsText(ajv.errors)\n      if (err.includes(MAX_COMBINED_LENGTH_KEYWORD)) {\n        throw new Error('Data dictionary is too large. Please reduce the number of columns.')\n      }\n      throw new Error(err)\n    }\n\n    const datasetId = req.params.id\n    const currentDataset = await Dataset.findByPk(datasetId)\n    if (currentDataset.dataset_state === undefined) throw new Error('Invalid Dataset')\n\n    if (currentDataset.dataset_state.source_agency !== req.body.source_agency)\n      throw new Error('Cannot change source agency')\n\n    // If dataset is Geospace or metadata-only, skip validation/ingestion checks\n    if (req.body.domain === 'Geospatial') {\n      const externalUrl = req.body.external_url\n      if (!externalUrl || externalUrl.length === 0) {\n        throw new Error(`external_url required for geospace dataset`)\n      }\n      if (!isValidExternalUrl(externalUrl)) {\n        throw new Error(`An invalid external_url ${externalUrl} was provided.`)\n      }\n\n      return next()\n    }\n    if (req.body.isMetadataOnly === true) {\n      return next()\n    }\n\n    // If new file uploaded check file validation exists and completed\n    if (req.body.newFileUploaded) {\n      const latestValidation = await ValidationService.getLatestValidation(datasetId)\n      if (latestValidation === undefined) throw new Error('Validation does not exist')\n      if (latestValidation.status !== ValidationStatus.Completed) throw new Error('Validation not completed')\n\n      //Ensure that dictionary matches length of current dictionary\n      if (req.body.data_dictionary.length !== currentDataset.dataset_state.data_dictionary.length) {\n        throw new Error('Invalid number of entries in data dictionary')\n      }\n    }\n\n    // Check if there is an existing ingestion running\n    const latestIngestion = await Dataset.getLatestIngestion(datasetId)\n    if (latestIngestion && latestIngestion.status === IngestionStatus.RUNNING) {\n      // Safety check to allow reingestion after 30 mins (in case of hung / disconnected ingestion)\n      const diffInMins = (new Date().valueOf() - latestIngestion.created_at.valueOf()) / 1000 / 60\n      if (diffInMins < 30) {\n        throw new Error(`Please wait for previous ingestion to complete before making new changes`)\n      }\n    }\n    next()\n  } catch (err) {\n    next(new HttpException(400, `Error saving dataset. ${err.message}`))\n  }\n}"
+            }
+          </SyntaxHighlighter>
+        </MFlex>
       )}
     </ContentSlide>
   )
