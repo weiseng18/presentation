@@ -6,6 +6,7 @@ import {
   List,
   ListItem,
   Table,
+  Td,
   Text,
   Tr,
   UnorderedList,
@@ -20,6 +21,7 @@ const MImage = motion(Image)
 const MList = motion(List)
 const MListItem = motion(ListItem)
 const MTable = motion(Table)
+const MTd = motion(Td)
 const MText = motion(Text)
 const MTr = motion(Tr)
 const MUnorderedList = motion(UnorderedList)
@@ -32,6 +34,7 @@ export {
   MList,
   MListItem,
   MTable,
+  MTd,
   MText,
   MTr,
   MUnorderedList,
