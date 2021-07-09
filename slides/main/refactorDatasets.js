@@ -1,17 +1,14 @@
 // base components
 import {
-  Box,
   Grid,
   List,
   Text,
   Tbody,
-  Td,
   Th,
   Thead,
   Tr,
   UnorderedList,
   VStack,
-  withDefaultColorScheme,
 } from "@chakra-ui/react"
 
 import {
