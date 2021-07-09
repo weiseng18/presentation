@@ -1,5 +1,8 @@
 // base components
-import { Flex } from "@chakra-ui/react"
+import { Box, Flex } from "@chakra-ui/react"
+
+// custom components
+import DatasetTable from "../components/custom/DatasetTable"
 
 import { AnimatePresence } from "framer-motion"
 import { useEffect, useState } from "react"
@@ -33,6 +36,8 @@ const Index = () => {
   const [step, setStep] = useState(0)
   const [direction, setDirection] = useState(0)
 
+  const [showTable, toggleTable] = useState(false)
+
   const changeSlide = (delta) => {
     const newSlide = slide + delta
     const newStep = step + delta
@@ -58,6 +63,8 @@ const Index = () => {
       changeSlide(1)
     } else if (e.key === "a") {
       changeSlide(-1)
+    } else if (e.key === "t") {
+      toggleTable((prev) => !prev)
     }
   }
 
@@ -82,6 +89,23 @@ const Index = () => {
         onKeyDown={handleKeyDown}
       >
         {renderSlide()}
+        {showTable && (
+          <Flex
+            position="absolute"
+            h="100vh"
+            w="100vw"
+            top="0"
+            left="0"
+            zIndex="10"
+            bgColor="white"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Box>
+              <DatasetTable hasSteps={false} />
+            </Box>
+          </Flex>
+        )}
       </Flex>
     </AnimatePresence>
   )
