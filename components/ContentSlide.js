@@ -24,7 +24,7 @@ const ContentSlide = ({ direction, title, children, layoutIdTitle }) => {
               h="10%"
               textStyle="heading2"
               layoutId={layoutIdTitle}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.8 }}
             >
               {title}
             </MText>

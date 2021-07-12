@@ -33,7 +33,7 @@ const BeforeOGP = ({ direction, step }) => {
               A Levels @ Hwa Chong Institution:{" "}
             </MText>
             {step >= 2 && (
-              <MHStack {...toggleOpacity} custom="enter" spacing={8}>
+              <MHStack pl={8} {...toggleOpacity} custom="enter" spacing={8}>
                 <Text textStyle="body1">H2 Math</Text>
                 <Text textStyle="body1">H2 Further Math</Text>
                 <Text textStyle="body1">H2 Computing</Text>
@@ -42,7 +42,13 @@ const BeforeOGP = ({ direction, step }) => {
               </MHStack>
             )}
             {step >= 3 && (
-              <MText {...toggleOpacity} custom="enter" textStyle="body1">
+              <MText
+                pl={8}
+                mt={4}
+                {...toggleOpacity}
+                custom="enter"
+                textStyle="body1"
+              >
                 Infocomm & Robotics Society (IRS)
               </MText>
             )}
@@ -66,42 +72,55 @@ const BeforeOGP = ({ direction, step }) => {
 const ProgrammingBackground = ({ direction, step }) => {
   return (
     <ContentSlide direction={direction} title="Programming">
-      <UnorderedList spacing={8}>
+      <List spacing={8}>
         {step >= 1 && (
           <MListItem {...toggleOpacity} custom="enter">
-            <Text textStyle="subHeading2">C++</Text>
-            <Text textStyle="body1" mt={4}>
+            <Text textStyle="subHeading2" mb={8}>
+              C++
+            </Text>
+            <Text textStyle="body1" pl={8} mb={4}>
+              Lower Sec Infocomm lessons
+            </Text>
+            <Text textStyle="body1" pl={8}>
               National Olympiad of Informatics (NOI)
             </Text>
           </MListItem>
         )}
         {step >= 2 && (
           <MListItem {...toggleOpacity} custom="enter">
-            <Text textStyle="subHeading2">Python</Text>
-            <Text textStyle="body1" mt={4}>
+            <Text textStyle="subHeading2" mb={8}>
+              Python
+            </Text>
+            <Text textStyle="body1" pl={8}>
               H2 Computing
             </Text>
           </MListItem>
         )}
         {step >= 3 && (
           <MListItem {...toggleOpacity} custom="enter">
-            <Text textStyle="subHeading2">HTML/CSS/JS</Text>
-            <Text textStyle="body1" mt={4}>
+            <MText layoutId="staticPages" textStyle="subHeading2" mb={8}>
+              HTML/CSS/JS
+            </MText>
+            <Text textStyle="body1" pl={8} mb={4}>
               Lower Sec Infocomm lessons
             </Text>
-            <Text textStyle="body1" mt={4}>
+            <Text textStyle="body1" pl={8}>
               Exploration
             </Text>
           </MListItem>
         )}
-      </UnorderedList>
+      </List>
     </ContentSlide>
   )
 }
 
 const StaticPages = ({ direction, step }) => {
   return (
-    <ContentSlide direction={direction} title="HTML/CSS/JS">
+    <ContentSlide
+      direction={direction}
+      layoutIdTitle="staticPages"
+      title="HTML/CSS/JS"
+    >
       <Text textStyle="body1">
         Static, single-page websites, made with vanilla JS, for solo projects
       </Text>

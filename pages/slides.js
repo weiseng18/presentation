@@ -75,9 +75,11 @@ const Index = () => {
     })
   }
 
+  /*
   useEffect(() => {
     setSlide(5)
   }, [])
+  */
 
   return (
     <AnimatePresence initial={false}>
