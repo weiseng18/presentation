@@ -89,7 +89,7 @@ const Improvements = ({ direction, step }) => {
         />
       )}
       <UnorderedList spacing={8}>
-        {step >= 2 && (
+        {step >= 2 && step !== 3 && (
           <MListItem layoutId="viewAll_general" textStyle="body1">
             View all datasets is a bit too general, as it shows you everything
           </MListItem>
