@@ -155,8 +155,10 @@ const Cell = ({ t, animate }) => {
 
 const DatasetFlows = ({ direction, step }) => {
   return (
-    <ContentSlide direction={direction} title="Dataset flows">
-      {step >= 1 && <DatasetTable step={step} />}
+    <>
+      <ContentSlide direction={direction} title="Dataset flows">
+        {step >= 1 && <DatasetTable step={step} />}
+      </ContentSlide>
       {step === 5 && (
         <MFlex
           position="absolute"
@@ -165,6 +167,7 @@ const DatasetFlows = ({ direction, step }) => {
           p={8}
           top="0"
           left="0"
+          zIndex="100"
           bgColor="white"
           justifyContent="center"
           {...toggleOpacity}
@@ -181,7 +184,7 @@ const DatasetFlows = ({ direction, step }) => {
           </SyntaxHighlighter>
         </MFlex>
       )}
-    </ContentSlide>
+    </>
   )
 }
 
