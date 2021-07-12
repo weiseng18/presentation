@@ -125,6 +125,11 @@ const WhyImplement = ({ direction, step }) => {
 }
 
 const Functionality = ({ direction, step }) => {
+  const [opacity, setOpacity] = useState(1)
+  useEffect(() => {
+    if (step >= 4) setOpacity(0.2)
+    else setOpacity(1)
+  }, [step])
   return (
     <ContentSlide direction={direction} title="Possible functionality">
       <Grid w="100%" templateColumns="repeat(2, 1fr)" gap={24} mt={4}>
@@ -138,7 +143,7 @@ const Functionality = ({ direction, step }) => {
                 </Text>
               </HStack>
             </ListItem>
-            <ListItem>
+            <MListItem animate={{ opacity: opacity }}>
               <HStack spacing={4}>
                 <ListIcon as={BsCodeSlash} color="purple.500" fontSize="24px" />
                 <Text textStyle="body1">
@@ -147,15 +152,15 @@ const Functionality = ({ direction, step }) => {
                   (status: Withdrawn)
                 </Text>
               </HStack>
-            </ListItem>
-            <ListItem>
+            </MListItem>
+            <MListItem animate={{ opacity: opacity }}>
               <HStack spacing={4}>
                 <ListIcon as={BsCodeSlash} color="purple.500" fontSize="24px" />
                 <Text textStyle="body1">
                   Admins do not see withdrawn request
                 </Text>
               </HStack>
-            </ListItem>
+            </MListItem>
             <ListItem>
               <HStack spacing={4}>
                 <ListIcon as={BsCheck} color="green.500" fontSize="24px" />
@@ -176,7 +181,7 @@ const Functionality = ({ direction, step }) => {
                 </Text>
               </HStack>
             </ListItem>
-            <ListItem>
+            <MListItem animate={{ opacity: opacity }}>
               <HStack spacing={4}>
                 <ListIcon as={BsCodeSlash} color="purple.500" fontSize="24px" />
                 <Text textStyle="body1">
@@ -185,15 +190,15 @@ const Functionality = ({ direction, step }) => {
                   (status: Draft)
                 </Text>
               </HStack>
-            </ListItem>
-            <ListItem>
+            </MListItem>
+            <MListItem animate={{ opacity: opacity }}>
               <HStack spacing={4}>
                 <ListIcon as={BsCodeSlash} color="purple.500" fontSize="24px" />
                 <Text textStyle="body1">
                   Admins do not see withdrawn request
                 </Text>
               </HStack>
-            </ListItem>
+            </MListItem>
             <ListItem>
               <HStack spacing={4}>
                 <ListIcon as={BsCodeSlash} color="purple.500" fontSize="24px" />
@@ -386,39 +391,38 @@ const KeepIds = ({ direction, step }) => {
                 <Th>
                   <Text textStyle="body2">User action</Text>
                 </Th>
-                <Th w="60%">
+                <Th>
+                  <Text textStyle="body2">Context</Text>
+                </Th>
+                <Th w="50%">
                   <Text textStyle="body2">Implementation</Text>
                 </Th>
               </Tr>
             </Thead>
             <Tbody>
               <Tr {...toggleOpacity} custom="enter">
-                <Td>Adds a dataset from a different org</Td>
+                <Td>Adds a dataset</Td>
+                <Td>From a different org</Td>
                 <Td>Generate new approval and associate with the request</Td>
               </Tr>
               {step >= 2 && (
                 <MTr {...toggleOpacity} custom="enter">
-                  <Td>Adds a dataset from the same org</Td>
+                  <Td>Adds a dataset</Td>
+                  <Td>From the same org</Td>
                   <Td>Amend existing approval, requires table joins</Td>
                 </MTr>
               )}
               {step >= 3 && (
                 <MTr {...toggleOpacity} custom="enter">
-                  <Td>
-                    Removes a dataset, and there are
-                    <br />
-                    no more datasets from that org
-                  </Td>
+                  <Td>Removes a dataset</Td>
+                  <Td>No more datasets from that org</Td>
                   <Td>Remove association between approval and request</Td>
                 </MTr>
               )}
               {step >= 4 && (
                 <MTr {...toggleOpacity} custom="enter">
-                  <Td>
-                    Removes a dataset, and there are
-                    <br />
-                    still more datasets from that org
-                  </Td>
+                  <Td>Removes a dataset</Td>
+                  <Td>Still some datasets from that org</Td>
                   <Td>Amend existing approval, requires table joins</Td>
                 </MTr>
               )}
@@ -446,21 +450,68 @@ const FinalImplementation = ({ direction, step }) => {
       <List spacing={8}>
         {step >= 1 && (
           <MListItem {...toggleOpacity} custom="enter">
-            <Text textStyle="body1">
-              Do not need to keep the same Approval IDs
-            </Text>
+            <VStack spacing={8} alignItems="flex-start">
+              <Text textStyle="subHeading2">Bear in mind</Text>
+              {step >= 2 && (
+                <MText
+                  pl={8}
+                  textStyle="body1"
+                  {...toggleOpacity}
+                  custom="enter"
+                >
+                  Do not need to keep the same Approval IDs
+                </MText>
+              )}
+              {step >= 3 && (
+                <MText
+                  pl={8}
+                  textStyle="body1"
+                  {...toggleOpacity}
+                  custom="enter"
+                >
+                  Avoid introducing too much extra logic to the code
+                </MText>
+              )}
+            </VStack>
           </MListItem>
         )}
-        {step >= 2 && (
-          <MListItem {...toggleOpacity} custom="enter">
-            <Text textStyle="body1">Mark approvals as Withdrawn</Text>
-            <UnorderedList mt={8} spacing={8}>
-              {step >= 3 && (
-                <MListItem pl={8} {...toggleOpacity} custom="enter">
-                  <Text textStyle="body1">Pending, Accepted, Rejected</Text>
-                </MListItem>
+        {step >= 4 && (
+          <MListItem pt={8} {...toggleOpacity} custom="enter">
+            <VStack spacing={8} alignItems="flex-start">
+              <Text textStyle="subHeading2">"Deleting approvals"</Text>
+              {step >= 5 && (
+                <MText
+                  textStyle="body1"
+                  pl={8}
+                  {...toggleOpacity}
+                  custom="enter"
+                >
+                  Mark approvals as Withdrawn
+                </MText>
               )}
-            </UnorderedList>
+              <HStack spacing={0}>
+                {step >= 6 && (
+                  <MText
+                    textStyle="body1"
+                    pl={8}
+                    {...toggleOpacity}
+                    custom="enter"
+                  >
+                    Pending, Accepted, Rejected
+                  </MText>
+                )}
+                {step >= 7 && (
+                  <MText
+                    textStyle="body1"
+                    {...toggleOpacity}
+                    color="red.500"
+                    custom="enter"
+                  >
+                    , Withdrawn
+                  </MText>
+                )}
+              </HStack>
+            </VStack>
           </MListItem>
         )}
       </List>
@@ -478,7 +529,7 @@ const Tradeoffs = ({ direction, step }) => {
           </MText>
         )}
         {step >= 2 && (
-          <UnorderedList pl={8} spacing={8}>
+          <List pl={8} spacing={8}>
             <MListItem {...toggleOpacity} custom="enter">
               <Text textStyle="body1">
                 Frontend: UUID in the address bar only
@@ -489,18 +540,18 @@ const Tradeoffs = ({ direction, step }) => {
                 <Text textStyle="body1">Approval API: Not used</Text>
               </MListItem>
             )}
-          </UnorderedList>
+          </List>
         )}
         {step >= 4 && (
           <>
             <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
               Filter away the withdrawn approvals
             </MText>
-            <UnorderedList pl={8} spacing={8}>
+            <List pl={8} spacing={8}>
               <MListItem {...toggleOpacity} custom="enter">
                 <Text textStyle="body1">Can change to soft delete</Text>
               </MListItem>
-            </UnorderedList>
+            </List>
           </>
         )}
       </VStack>
@@ -527,17 +578,17 @@ const TeamAndPurge = ({ direction, step }) => {
             </MText>
           )}
           {step >= 7 && (
-            <MUnorderedList pl={8} spacing={8} {...toggleOpacity}>
+            <MList pl={8} spacing={8} {...toggleOpacity}>
               <ListItem custom="enter">
                 <Text textStyle="body1">
                   Each team member needs to indicate that they have purged the
                   dataset(s)
                 </Text>
               </ListItem>
-            </MUnorderedList>
+            </MList>
           )}
           {step >= 2 && (
-            <MUnorderedList pl={8} spacing={8} animate={{ opacity: opacity }}>
+            <MList pl={8} spacing={8} animate={{ opacity: opacity }}>
               <MListItem {...toggleOpacity} custom="enter">
                 <Text textStyle="body1">1 approval for whole team</Text>
               </MListItem>
@@ -548,7 +599,7 @@ const TeamAndPurge = ({ direction, step }) => {
                   </Text>
                 </MListItem>
               )}
-            </MUnorderedList>
+            </MList>
           )}
           {step >= 4 && (
             <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
@@ -556,22 +607,22 @@ const TeamAndPurge = ({ direction, step }) => {
             </MText>
           )}
           {step >= 8 && (
-            <MUnorderedList pl={8} spacing={8} {...toggleOpacity}>
+            <MList pl={8} spacing={8} {...toggleOpacity}>
               <ListItem custom="enter">
                 <Text textStyle="body1">
                   Each team member needs write access
                 </Text>
               </ListItem>
-            </MUnorderedList>
+            </MList>
           )}
           {step >= 5 && (
-            <MUnorderedList pl={8} spacing={8} animate={{ opacity: opacity }}>
+            <MList pl={8} spacing={8} animate={{ opacity: opacity }}>
               <MListItem {...toggleOpacity} custom="enter">
                 <Text textStyle="body1">
                   Indicate that you have deleted the datasets locally
                 </Text>
               </MListItem>
-            </MUnorderedList>
+            </MList>
           )}
         </VStack>
         <VStack spacing={8} alignItems="flex-start">
@@ -581,7 +632,7 @@ const TeamAndPurge = ({ direction, step }) => {
             </MText>
           )}
           {step >= 10 && (
-            <UnorderedList pl={8} spacing={8}>
+            <List pl={8} spacing={8}>
               <MListItem {...toggleOpacity} custom="enter">
                 <Text textStyle="body1">
                   Team has write access, so can every team member can withdraw
@@ -595,7 +646,7 @@ const TeamAndPurge = ({ direction, step }) => {
                   </Text>
                 </MListItem>
               )}
-            </UnorderedList>
+            </List>
           )}
         </VStack>
       </Grid>
@@ -615,7 +666,7 @@ const TeamAndWithdraw = ({ direction, step }) => {
               </MText>
             )}
             {step >= 2 && (
-              <UnorderedList pl={8} spacing={8}>
+              <List pl={8} spacing={8}>
                 <MListItem {...toggleOpacity} custom="enter">
                   <Text textStyle="body1">
                     All teammates can withdraw the request
@@ -635,7 +686,7 @@ const TeamAndWithdraw = ({ direction, step }) => {
                     </Text>
                   </MListItem>
                 )}
-              </UnorderedList>
+              </List>
             )}
           </VStack>
         )}
@@ -646,7 +697,7 @@ const TeamAndWithdraw = ({ direction, step }) => {
             </MText>
           )}
           {step >= 6 && (
-            <UnorderedList pl={8} spacing={8}>
+            <List pl={8} spacing={8}>
               <MListItem {...toggleOpacity} custom="enter">
                 <Text textStyle="body1">Cleaner in the processes</Text>
               </MListItem>
@@ -655,7 +706,7 @@ const TeamAndWithdraw = ({ direction, step }) => {
                   <Text textStyle="body1">Cleaner in the code</Text>
                 </MListItem>
               )}
-            </UnorderedList>
+            </List>
           )}
         </VStack>
         <VStack spacing={8} alignItems="flex-start">
@@ -665,12 +716,7 @@ const TeamAndWithdraw = ({ direction, step }) => {
             </MText>
           )}
           {step >= 13 && (
-            <MUnorderedList
-              pl={8}
-              spacing={8}
-              {...toggleOpacity}
-              custom="enter"
-            >
+            <MList pl={8} spacing={8} {...toggleOpacity} custom="enter">
               <ListItem>
                 <Text textStyle="body1">
                   Team member could assume the role of the "leader", without
@@ -682,7 +728,7 @@ const TeamAndWithdraw = ({ direction, step }) => {
                   Teammate can make unauthorized changes
                 </Text>
               </ListItem>
-            </MUnorderedList>
+            </MList>
           )}
         </VStack>
       </Grid>
@@ -747,7 +793,7 @@ const TeamWithdrawImplementation = ({ direction, step }) => {
       direction={direction}
       title="Should team members see withdraw button?"
     >
-      <UnorderedList pl={8} spacing={8}>
+      <UnorderedList spacing={8}>
         {step >= 1 && (
           <MListItem {...toggleOpacity} custom="enter">
             <Text textStyle="body1">Not quite</Text>
