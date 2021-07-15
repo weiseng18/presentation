@@ -486,6 +486,52 @@ const Identify = ({ direction, step }) => {
   )
 }
 
+const Closing = ({ direction, step }) => {
+  return (
+    <ContentSlide direction={direction} title="Conclusion">
+      <UnorderedList spacing={8}>
+        {step >= 1 && step < 3 && (
+          <MListItem {...toggleOpacity} custom="enter">
+            <Text textStyle="body1">I did a bad job at presenting</Text>
+          </MListItem>
+        )}
+        {step >= 2 && step < 3 && (
+          <MListItem {...toggleOpacity} custom="enter">
+            <Text textStyle="body1">
+              Vault's logic is complex and implicit, resulting in overhead
+            </Text>
+          </MListItem>
+        )}
+      </UnorderedList>
+      <List spacing={8}>
+        {step >= 4 && (
+          <MListItem {...toggleOpacity} custom="enter">
+            <Text textStyle="body1">Subtle logic</Text>
+          </MListItem>
+        )}
+        {step >= 5 && (
+          <MListItem {...toggleOpacity} custom="enter">
+            <Text textStyle="body1">Relies on if statements everywhere</Text>
+          </MListItem>
+        )}
+      </List>
+      {step >= 6 && (
+        <MFlex
+          pt={8}
+          justifyContent="center"
+          w="100%"
+          {...toggleOpacity}
+          custom="enter"
+        >
+          <Text textStyle="subHeading1">
+            Important to be explicit when structuring code flows
+          </Text>
+        </MFlex>
+      )}
+    </ContentSlide>
+  )
+}
+
 export default [
   Scope,
   Context,
@@ -496,4 +542,5 @@ export default [
   DecideSubclass,
   FrontendVars,
   Identify,
+  Closing,
 ]
