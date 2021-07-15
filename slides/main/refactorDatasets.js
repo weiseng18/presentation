@@ -1,7 +1,24 @@
 // base components
-import { Grid, List, Text, UnorderedList, VStack } from "@chakra-ui/react"
+import {
+  Grid,
+  List,
+  Tbody,
+  Text,
+  Th,
+  Thead,
+  Tr,
+  UnorderedList,
+  VStack,
+} from "@chakra-ui/react"
 
-import { MFlex, MListItem, MTd, MText } from "../../components/MotionChakra"
+import {
+  MFlex,
+  MListItem,
+  MTable,
+  MTd,
+  MText,
+  MTr,
+} from "../../components/MotionChakra"
 
 // slide components
 import ContentSlide from "../../components/ContentSlide"
@@ -273,4 +290,99 @@ const GeneralApproach = ({ direction, step }) => {
   )
 }
 
-export default [Scope, Context, OnlyCSV, DatasetFlows, Aim, GeneralApproach]
+const DecideSubclass = ({ direction, step }) => {
+  // using another way to implement nested lists
+  return (
+    <ContentSlide direction={direction} title="Deciding a dataset's type">
+      <Grid w="100%" templateColumns="repeat(2, 1fr)" gap={24} mb={8}>
+        <List spacing={8}>
+          {step >= 1 && (
+            <MListItem {...toggleOpacity} custom="enter">
+              <Text textStyle="subHeading2">data_table</Text>
+            </MListItem>
+          )}
+          {step >= 2 && (
+            <MListItem pl={8} {...toggleOpacity} custom="enter">
+              <Text textStyle="body1">
+                Stores name of table containing ingested file
+              </Text>
+            </MListItem>
+          )}
+        </List>
+        <List spacing={8}>
+          {step >= 3 && (
+            <MListItem {...toggleOpacity} custom="enter">
+              <Text textStyle="subHeading2">File table</Text>
+            </MListItem>
+          )}
+          {step >= 4 && (
+            <MListItem pl={8} {...toggleOpacity} custom="enter">
+              <Text textStyle="body1">
+                Stores entry, if there was a successful S3 upload
+              </Text>
+            </MListItem>
+          )}
+        </List>
+      </Grid>
+      {step >= 5 && (
+        <MTable {...toggleOpacity} custom="enter">
+          <Thead>
+            <Tr>
+              <Th fontSize="sm">data_table defined</Th>
+              <Th fontSize="sm">File table has entry</Th>
+              <Th fontSize="sm" w="40%">
+                Type
+              </Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            {step >= 6 && (
+              <MTr {...toggleOpacity} custom="enter">
+                <Cell t="Y" />
+                <Cell t="Y" />
+                <Cell t="Ingested" />
+              </MTr>
+            )}
+            {step >= 7 && (
+              <MTr {...toggleOpacity} custom="enter">
+                <Cell t="N" />
+                <Cell t="Y" />
+                <Cell t="Non-Ingested" />
+              </MTr>
+            )}
+            {step >= 8 && (
+              <MTr {...toggleOpacity} custom="enter">
+                <Cell t="N" />
+                <Cell t="N" />
+                <Cell t="Metadata Only" />
+              </MTr>
+            )}
+          </Tbody>
+        </MTable>
+      )}
+      {step >= 9 && (
+        <MFlex
+          pt={8}
+          justifyContent="center"
+          w="100%"
+          {...toggleOpacity}
+          custom="enter"
+        >
+          <Text textStyle="subHeading1">
+            Assumes that there is a entry in the DB to refer to
+          </Text>
+        </MFlex>
+      )}
+    </ContentSlide>
+  )
+}
+
+export default [
+  Scope,
+  Context,
+  OnlyCSV,
+  DatasetFlows,
+  Aim,
+  GeneralApproach,
+  DecideSubclass,
+]
