@@ -391,7 +391,7 @@ const KeepIds = ({ direction, step }) => {
                 <Th>
                   <Text textStyle="body2">User action</Text>
                 </Th>
-                <Th>
+                <Th w="30%">
                   <Text textStyle="body2">Context</Text>
                 </Th>
                 <Th w="50%">
