@@ -377,6 +377,63 @@ const DecideSubclass = ({ direction, step }) => {
   )
 }
 
+const FrontendVars = ({ direction, step }) => {
+  // using another way to implement nested lists
+  return (
+    <ContentSlide direction={direction} title="Frontend variables">
+      <List spacing={8}>
+        {step >= 1 && (
+          <MListItem {...toggleOpacity} custom="enter">
+            <Text textStyle="subHeading2">newFileUploaded</Text>
+          </MListItem>
+        )}
+        {step >= 3 && (
+          <MListItem pl={8} {...toggleOpacity} custom="enter">
+            <Text textStyle="body1">Defaulted to false</Text>
+          </MListItem>
+        )}
+        {step >= 4 && (
+          <MListItem pl={8} {...toggleOpacity} custom="enter">
+            <Text textStyle="body1">
+              True when new file is successfully uploaded to S3
+            </Text>
+          </MListItem>
+        )}
+        {step >= 2 && (
+          <MListItem {...toggleOpacity} custom="enter">
+            <Text textStyle="subHeading2">isMetadataOnly</Text>
+          </MListItem>
+        )}
+        {step >= 5 && (
+          <MListItem pl={8} {...toggleOpacity} custom="enter">
+            <Text textStyle="body1">Defaulted to true</Text>
+          </MListItem>
+        )}
+        {step >= 6 && (
+          <MListItem pl={8} {...toggleOpacity} custom="enter">
+            <Text textStyle="body1">
+              False when a file validation is completed
+            </Text>
+          </MListItem>
+        )}
+      </List>
+      {step >= 7 && (
+        <MFlex
+          pt={8}
+          justifyContent="center"
+          w="100%"
+          {...toggleOpacity}
+          custom="enter"
+        >
+          <Text textStyle="subHeading1">
+            Can't tell if dataset is ingested or not
+          </Text>
+        </MFlex>
+      )}
+    </ContentSlide>
+  )
+}
+
 export default [
   Scope,
   Context,
@@ -385,4 +442,5 @@ export default [
   Aim,
   GeneralApproach,
   DecideSubclass,
+  FrontendVars,
 ]
