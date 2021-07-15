@@ -434,6 +434,58 @@ const FrontendVars = ({ direction, step }) => {
   )
 }
 
+const Identify = ({ direction, step }) => {
+  // using another way to implement nested lists
+  return (
+    <ContentSlide
+      direction={direction}
+      title="Differentiate Ingested and Non-Ingested"
+    >
+      <List spacing={8}>
+        {step >= 1 && (
+          <MListItem {...toggleOpacity} custom="enter">
+            <Text textStyle="subHeading2">S3 data has expiry of 24 hours</Text>
+          </MListItem>
+        )}
+        {step >= 2 && (
+          <MListItem pl={8} {...toggleOpacity} custom="enter">
+            <Text textStyle="body1">For security purposes</Text>
+          </MListItem>
+        )}
+        {step >= 3 && (
+          <MListItem {...toggleOpacity} custom="enter">
+            <Text textStyle="subHeading2">
+              Non-Ingested: S3 as sole data source
+            </Text>
+          </MListItem>
+        )}
+        {step >= 4 && (
+          <MListItem pl={8} {...toggleOpacity} custom="enter">
+            <Text textStyle="body1">Different S3 bucket!</Text>
+          </MListItem>
+        )}
+        {step >= 5 && (
+          <MListItem pl={8} {...toggleOpacity} custom="enter">
+            <Text textStyle="body1">inPersistent parameter</Text>
+          </MListItem>
+        )}
+        {step >= 6 && (
+          <MListItem pl={8} {...toggleOpacity} custom="enter">
+            <Text textStyle="body1">
+              Able to tell whether dataset is ingested or not
+            </Text>
+          </MListItem>
+        )}
+        {step >= 7 && (
+          <MListItem pl={8} {...toggleOpacity} custom="enter">
+            <Text textStyle="body1">Store type in DB</Text>
+          </MListItem>
+        )}
+      </List>
+    </ContentSlide>
+  )
+}
+
 export default [
   Scope,
   Context,
@@ -443,4 +495,5 @@ export default [
   GeneralApproach,
   DecideSubclass,
   FrontendVars,
+  Identify,
 ]
