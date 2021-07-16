@@ -35,9 +35,9 @@ const Index = () => {
   }
 
   const handleKeyDown = (e) => {
-    if (e.key === "d") {
+    if (e.key === "d" || e.key === "D") {
       changeSlide(1)
-    } else if (e.key === "a") {
+    } else if (e.key === "a" || e.key === "A") {
       changeSlide(-1)
     }
   }
