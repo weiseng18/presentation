@@ -1,5 +1,5 @@
 // base components
-import { Flex } from "@chakra-ui/react"
+import { Box, Flex } from "@chakra-ui/react"
 
 import { AnimatePresence } from "framer-motion"
 import { useState } from "react"
@@ -51,6 +51,9 @@ const Index = () => {
 
   return (
     <AnimatePresence initial={false}>
+      <Box zIndex="1000" position="absolute" right="32px" bottom="32px">
+        {slide + 1}
+      </Box>
       <Flex
         h="100vh"
         w="100vw"
