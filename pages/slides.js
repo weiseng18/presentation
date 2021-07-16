@@ -83,6 +83,9 @@ const Index = () => {
 
   return (
     <AnimatePresence initial={false}>
+      <Box zIndex="1000" position="absolute" right="32px" bottom="32px">
+        {slide + 1}
+      </Box>
       <Flex
         h="100vh"
         w="100vw"
