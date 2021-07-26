@@ -40,6 +40,7 @@ const toggleOpacity = {
   exit: "start",
   transition: {
     bounce: 0,
+    duration: 0.5,
   },
   variants: {
     start: (action) => {
