@@ -223,6 +223,13 @@ const Aim = ({ direction, step }) => {
         )}
         {step >= 3 && (
           <MListItem {...toggleOpacity} custom="enter">
+            <Text textStyle="body1">
+              Abstract the logic into separate classes
+            </Text>
+          </MListItem>
+        )}
+        {step >= 4 && (
+          <MListItem {...toggleOpacity} custom="enter">
             <Text textStyle="body1">Code logic is easier to follow</Text>
           </MListItem>
         )}
