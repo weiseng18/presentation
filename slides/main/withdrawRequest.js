@@ -657,8 +657,8 @@ const TeamAndPurge = ({ direction, step }) => {
 const TeamAndWithdraw = ({ direction, step }) => {
   return (
     <ContentSlide direction={direction} title="Team members and withdraw/edit">
-      <Grid w="100%" templateColumns="repeat(2, 1fr)" gap={24} mt={4}>
-        {step < 5 && (
+      {step < 8 && (
+        <Grid w="100%" templateColumns="repeat(2, 1fr)" gap={24} mt={4}>
           <VStack spacing={8} alignItems="flex-start">
             {step >= 1 && (
               <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
@@ -689,53 +689,53 @@ const TeamAndWithdraw = ({ direction, step }) => {
               </List>
             )}
           </VStack>
-        )}
-        <VStack spacing={8} alignItems="flex-start">
-          {step >= 5 && (
-            <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
-              Vault
-            </MText>
-          )}
-          {step >= 6 && (
-            <List pl={8} spacing={8}>
-              <MListItem {...toggleOpacity} custom="enter">
-                <Text textStyle="body1">Cleaner in the processes</Text>
-              </MListItem>
-              {step >= 7 && (
+          <VStack spacing={8} alignItems="flex-start">
+            {step >= 5 && (
+              <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
+                Vault
+              </MText>
+            )}
+            {step >= 6 && (
+              <List pl={8} spacing={8}>
                 <MListItem {...toggleOpacity} custom="enter">
-                  <Text textStyle="body1">Cleaner in the code</Text>
+                  <Text textStyle="body1">Cleaner in the processes</Text>
                 </MListItem>
-              )}
-            </List>
-          )}
-        </VStack>
-        <MVStack
-          layoutId="strangeInteractions"
-          spacing={8}
-          alignItems="flex-start"
-        >
-          {step >= 8 && (
-            <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
-              Strange interactions
-            </MText>
-          )}
-          {step >= 13 && (
-            <MList pl={8} spacing={8} {...toggleOpacity} custom="enter">
-              <ListItem>
-                <Text textStyle="body1">
-                  Team member could assume the role of the "leader", without
-                  permission of the creator
-                </Text>
-              </ListItem>
-              <ListItem>
-                <Text textStyle="body1">
-                  Teammate can make unauthorized changes
-                </Text>
-              </ListItem>
-            </MList>
-          )}
-        </MVStack>
-      </Grid>
+                {step >= 7 && (
+                  <MListItem {...toggleOpacity} custom="enter">
+                    <Text textStyle="body1">Cleaner in the code</Text>
+                  </MListItem>
+                )}
+              </List>
+            )}
+          </VStack>
+        </Grid>
+      )}
+      <MVStack
+        layoutId="strangeInteractions"
+        spacing={8}
+        alignItems="flex-start"
+      >
+        {step >= 8 && (
+          <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
+            Strange interactions
+          </MText>
+        )}
+        {step >= 13 && (
+          <MList pl={8} spacing={8} {...toggleOpacity} custom="enter">
+            <ListItem>
+              <Text textStyle="body1">
+                Team member could assume the role of the "leader", without
+                permission of the creator
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Text textStyle="body1">
+                Teammate can make unauthorized changes
+              </Text>
+            </ListItem>
+          </MList>
+        )}
+      </MVStack>
       {step >= 9 && step <= 12 && (
         <MFlex
           position="absolute"
@@ -798,11 +798,7 @@ const TeamWithdrawImplementation = ({ direction, step }) => {
       title="Should team members see withdraw button?"
     >
       <VStack spacing={8} alignItems="flex-start">
-        <MVStack
-          layoutId="strangeInteractions"
-          spacing={8}
-          alignItems="flex-start"
-        >
+        <VStack spacing={8} alignItems="flex-start">
           <Text textStyle="subHeading2">Strange interactions</Text>
           <List pl={8} spacing={8}>
             <ListItem>
@@ -817,7 +813,7 @@ const TeamWithdrawImplementation = ({ direction, step }) => {
               </Text>
             </ListItem>
           </List>
-        </MVStack>
+        </VStack>
         <List spacing={8}>
           {step >= 1 && (
             <MListItem {...toggleOpacity} custom="enter">
