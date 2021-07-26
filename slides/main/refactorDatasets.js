@@ -535,8 +535,8 @@ const Closing = ({ direction, step }) => {
 export default [
   Scope,
   Context,
-  OnlyCSV,
   DatasetFlows,
+  OnlyCSV,
   Aim,
   GeneralApproach,
   DecideSubclass,
