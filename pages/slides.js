@@ -67,6 +67,9 @@ const Index = () => {
       changeSlide(-1)
     } else if (e.key === "t" || e.key === "T") {
       toggleTable((prev) => !prev)
+    } else if (e.key === "e" || e.key === "E") {
+      setSlide(slides.length - 1)
+      setStep(0)
     }
   }
 
