@@ -39,6 +39,9 @@ const Index = () => {
       changeSlide(1)
     } else if (e.key === "a" || e.key === "A") {
       changeSlide(-1)
+    } else if (e.key === "e" || e.key === "E") {
+      setSlide(slides.length - 1)
+      setStep(0)
     }
   }
 
