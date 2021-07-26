@@ -531,7 +531,7 @@ const Closing = ({ direction, step }) => {
           custom="enter"
         >
           <Text textStyle="subHeading1">
-            Important to be explicit when structuring code flows
+            Important to design code flows well
           </Text>
         </MFlex>
       )}
