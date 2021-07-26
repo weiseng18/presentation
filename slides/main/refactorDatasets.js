@@ -31,6 +31,7 @@ import SyntaxHighlighter from "react-syntax-highlighter"
 import { vs2015 } from "react-syntax-highlighter/dist/cjs/styles/hljs"
 
 import { toggleOpacity } from "../../animations"
+import CaptionImage from "../../components/CaptionImage"
 
 const Scope = ({ direction, step }) => {
   return (
@@ -476,19 +477,28 @@ const Identify = ({ direction, step }) => {
             <Text textStyle="body1">inPersistent parameter</Text>
           </MListItem>
         )}
-        {step >= 6 && (
-          <MListItem pl={8} {...toggleOpacity} custom="enter">
-            <Text textStyle="body1">
-              Able to tell whether dataset is ingested or not
-            </Text>
-          </MListItem>
-        )}
-        {step >= 7 && (
-          <MListItem pl={8} {...toggleOpacity} custom="enter">
-            <Text textStyle="body1">Store type in DB</Text>
-          </MListItem>
-        )}
       </List>
+      {step == 6 && (
+        <MFlex
+          position="absolute"
+          h="100vh"
+          w="100vw"
+          top="0"
+          left="0"
+          bgColor="white"
+          justifyContent="center"
+          alignItems="center"
+          {...toggleOpacity}
+          custom="enter"
+        >
+          <CaptionImage
+            src="dataset refactor/frontend vars.png"
+            h="384"
+            w="683"
+            caption="How datasetType is determined"
+          />
+        </MFlex>
+      )}
     </ContentSlide>
   )
 }

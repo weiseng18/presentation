@@ -23,7 +23,7 @@ const Index = () => {
     // Features Intro (dataset refactoring)
     1,
     // Dataset Refactoring
-    3, 5, 6, 6, 4, 8, 9, 7, 7, 6,
+    3, 5, 6, 6, 4, 8, 9, 7, 6, 6,
     // Features Intro (revamp search)
     1,
     // Revamp Search
