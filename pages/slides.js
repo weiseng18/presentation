@@ -28,6 +28,8 @@ const Index = () => {
     1,
     // Revamp Search
     6, 6, 13, 4, 10,
+    // Conclusion
+    3,
     // End
     0,
   ]
