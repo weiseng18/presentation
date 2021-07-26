@@ -709,7 +709,11 @@ const TeamAndWithdraw = ({ direction, step }) => {
             </List>
           )}
         </VStack>
-        <VStack spacing={8} alignItems="flex-start">
+        <MVStack
+          layoutId="strangeInteractions"
+          spacing={8}
+          alignItems="flex-start"
+        >
           {step >= 8 && (
             <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
               Strange interactions
@@ -730,7 +734,7 @@ const TeamAndWithdraw = ({ direction, step }) => {
               </ListItem>
             </MList>
           )}
-        </VStack>
+        </MVStack>
       </Grid>
       {step >= 9 && step <= 12 && (
         <MFlex
@@ -793,21 +797,45 @@ const TeamWithdrawImplementation = ({ direction, step }) => {
       direction={direction}
       title="Should team members see withdraw button?"
     >
-      <UnorderedList spacing={8}>
-        {step >= 1 && (
-          <MListItem {...toggleOpacity} custom="enter">
-            <Text textStyle="body1">Not quite</Text>
-          </MListItem>
-        )}
-        {step >= 2 && (
-          <MListItem {...toggleOpacity} custom="enter">
-            <Text textStyle="body1">
-              Team members are presented with a leave request button, to leave
-              the request instead
-            </Text>
-          </MListItem>
-        )}
-      </UnorderedList>
+      <VStack spacing={8} alignItems="flex-start">
+        <MVStack
+          layoutId="strangeInteractions"
+          spacing={8}
+          alignItems="flex-start"
+        >
+          <Text textStyle="subHeading2">Strange interactions</Text>
+          <List pl={8} spacing={8}>
+            <ListItem>
+              <Text textStyle="body1">
+                Team member could assume the role of the "leader", without
+                permission of the creator
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Text textStyle="body1">
+                Teammate can make unauthorized changes
+              </Text>
+            </ListItem>
+          </List>
+        </MVStack>
+        <List spacing={8}>
+          {step >= 1 && (
+            <MListItem {...toggleOpacity} custom="enter">
+              <Text textStyle="body1">
+                Team members are presented with a leave request button, to leave
+                the request instead
+              </Text>
+            </MListItem>
+          )}
+          {step >= 2 && (
+            <MListItem {...toggleOpacity} custom="enter">
+              <Text textStyle="body1">
+                Team members do not get partial "write" access
+              </Text>
+            </MListItem>
+          )}
+        </List>
+      </VStack>
     </ContentSlide>
   )
 }
