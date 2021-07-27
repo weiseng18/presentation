@@ -125,7 +125,7 @@ const Context = ({ direction, step }) => {
         )}
         {step >= 3 && (
           <MListItem {...toggleOpacity} custom="enter">
-            <Text textStyle="body1">PR to introduce</Text>
+            <Text textStyle="body1">Feature to introduce</Text>
             <UnorderedList pl={4} mt={8} spacing={8}>
               {step >= 4 && (
                 <MListItem {...toggleOpacity} custom="enter">
