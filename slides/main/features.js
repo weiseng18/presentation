@@ -10,7 +10,7 @@ import RevampSearch from "./revampSearch"
 
 const WITHDRAW_REQUEST = 6
 const REFACTOR_DATASETS = 17
-const REVAMP_SEARCH = 28
+const REVAMP_SEARCH = 29
 
 const Title = ({ direction, step, jumpToSlide }) => {
   return (

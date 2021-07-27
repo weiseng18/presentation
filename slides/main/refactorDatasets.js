@@ -61,6 +61,52 @@ const Scope = ({ direction, step }) => {
   )
 }
 
+const Meaning = ({ direction, step }) => {
+  return (
+    <ContentSlide direction={direction} title="What does it actually mean?">
+      {step >= 1 && (
+        <MFlex
+          position="absolute"
+          h="100vh"
+          w="100vw"
+          top="0"
+          left="0"
+          bgColor="white"
+          justifyContent="center"
+          alignItems="center"
+          {...toggleOpacity}
+          custom="enter"
+        >
+          {step === 1 && (
+            <CaptionImage
+              src="dataset refactor/controller/1.png"
+              h="500"
+              w="888"
+              caption="Current Vault"
+            />
+          )}
+          {step === 2 && (
+            <CaptionImage
+              src="dataset refactor/controller/2.png"
+              h="500"
+              w="888"
+              caption="All logic in the controller"
+            />
+          )}
+          {step === 3 && (
+            <CaptionImage
+              src="dataset refactor/controller/3.png"
+              h="500"
+              w="888"
+              caption="Abstract logic into classes"
+            />
+          )}
+        </MFlex>
+      )}
+    </ContentSlide>
+  )
+}
+
 const Context = ({ direction, step }) => {
   return (
     <ContentSlide direction={direction} title="Context">
@@ -493,8 +539,8 @@ const Identify = ({ direction, step }) => {
         >
           <CaptionImage
             src="dataset refactor/frontend vars.png"
-            h="384"
-            w="683"
+            h="500"
+            w="888"
             caption="How datasetType is determined"
           />
         </MFlex>
@@ -551,6 +597,7 @@ const Closing = ({ direction, step }) => {
 
 export default [
   Scope,
+  Meaning,
   Context,
   DatasetFlows,
   OnlyCSV,
