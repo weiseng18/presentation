@@ -53,7 +53,7 @@ const Scope = ({ direction, step }) => {
         )}
         {step >= 3 && (
           <MListItem {...toggleOpacity} custom="enter">
-            <Text textStyle="body1">Replace existing controller functions</Text>
+            <Text textStyle="body1">Update controller and service layer</Text>
           </MListItem>
         )}
       </UnorderedList>
