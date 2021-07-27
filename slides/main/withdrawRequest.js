@@ -606,9 +606,14 @@ const Tradeoffs = ({ direction, step }) => {
                 <Text textStyle="body1">Approval API: Not used</Text>
               </MListItem>
             )}
+            {step >= 4 && (
+              <MListItem {...toggleOpacity} custom="enter">
+                <Text textStyle="body1">Request would have changed</Text>
+              </MListItem>
+            )}
           </List>
         )}
-        {step >= 4 && (
+        {step >= 5 && (
           <>
             <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
               Filter away the withdrawn approvals
