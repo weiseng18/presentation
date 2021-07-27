@@ -231,10 +231,10 @@ const HowToImplement = ({ direction, step }) => {
   const [opacity, setOpacity] = useState(1)
   const [opacityTwo, setOpacityTwo] = useState(1)
   useEffect(() => {
-    if (step > 3) {
+    if (step >= 6) {
       setOpacity(0.2)
       setOpacityTwo(0.2)
-    } else if (step === 3) {
+    } else if (step >= 3) {
       setOpacity(0.2)
       setOpacityTwo(1)
     } else setOpacity(1)
@@ -366,7 +366,7 @@ const HowToImplement = ({ direction, step }) => {
                 </Text>
               </MListItem>
             )}
-            {step >= 4 && (
+            {step >= 6 && (
               <MListItem {...toggleOpacity} custom="enter">
                 <Text textStyle="body1">
                   Note that 1 approval is for 1 organisation
@@ -376,6 +376,27 @@ const HowToImplement = ({ direction, step }) => {
           </UnorderedList>
         </VStack>
       </Grid>
+      {step == 4 && (
+        <MFlex
+          position="absolute"
+          h="100vh"
+          w="100vw"
+          top="0"
+          left="0"
+          bgColor="white"
+          justifyContent="center"
+          alignItems="center"
+          {...toggleOpacity}
+          custom="enter"
+        >
+          <CaptionImage
+            src="withdraw/UUID.jpeg"
+            h="50"
+            w="888"
+            caption="UUID in the address bar"
+          />
+        </MFlex>
+      )}
     </ContentSlide>
   )
 }
