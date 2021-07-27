@@ -465,6 +465,51 @@ const KeepIds = ({ direction, step }) => {
   )
 }
 
+const Worth = ({ direction, step }) => {
+  return (
+    <ContentSlide direction={direction} title="Is it worth it?">
+      <List spacing={8}>
+        {step >= 1 && (
+          <MListItem {...toggleOpacity} custom="enter">
+            <Text textStyle="body1">We can implement this</Text>
+          </MListItem>
+        )}
+        {step >= 2 && (
+          <MListItem {...toggleOpacity} custom="enter">
+            <Text textStyle="body1">Many cases = more logic</Text>
+          </MListItem>
+        )}
+        {step >= 5 && (
+          <MListItem {...toggleOpacity} custom="enter">
+            <Text textStyle="body1">Small gain, large effort</Text>
+          </MListItem>
+        )}
+      </List>
+      {step == 3 && (
+        <MFlex
+          position="absolute"
+          h="100vh"
+          w="100vw"
+          top="0"
+          left="0"
+          bgColor="white"
+          justifyContent="center"
+          alignItems="center"
+          {...toggleOpacity}
+          custom="enter"
+        >
+          <CaptionImage
+            src="withdraw/UUID.jpeg"
+            h="50"
+            w="888"
+            caption="UUID in the address bar"
+          />
+        </MFlex>
+      )}
+    </ContentSlide>
+  )
+}
+
 const FinalImplementation = ({ direction, step }) => {
   return (
     <ContentSlide direction={direction} title="Implementation">
@@ -863,6 +908,7 @@ export default [
   Functionality,
   HowToImplement,
   KeepIds,
+  Worth,
   FinalImplementation,
   Tradeoffs,
   TeamAndPurge,

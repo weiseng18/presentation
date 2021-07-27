@@ -19,7 +19,7 @@ const Index = () => {
     // Features Intro (all + withdraw)
     4,
     // Withdraw Request
-    4, 2, 4, 6, 5, 7, 4, 11, 13, 2,
+    4, 2, 4, 6, 5, 5, 7, 4, 11, 13, 2,
     // Features Intro (dataset refactoring)
     1,
     // Dataset Refactoring

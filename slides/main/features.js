@@ -9,8 +9,8 @@ import RefactorDatasets from "./refactorDatasets"
 import RevampSearch from "./revampSearch"
 
 const WITHDRAW_REQUEST = 6
-const REFACTOR_DATASETS = 17
-const REVAMP_SEARCH = 29
+const REFACTOR_DATASETS = 18
+const REVAMP_SEARCH = 30
 
 const Title = ({ direction, step, jumpToSlide }) => {
   return (
