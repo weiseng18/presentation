@@ -486,9 +486,7 @@ const Issues = ({ direction, step }) => {
             </SyntaxHighlighter>
           )}
           {step === 9 && (
-            <video height="640" width="1024" controls>
-              <source src="revamp search/fixes/4.mov" />
-            </video>
+            <Text textStyle="subHeading1">Back to top button</Text>
           )}
         </Flex>
       )}
