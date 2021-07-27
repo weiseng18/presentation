@@ -727,7 +727,11 @@ const TeamAndPurge = ({ direction, step }) => {
 
 const TeamAndWithdraw = ({ direction, step }) => {
   return (
-    <ContentSlide direction={direction} title="Team members and withdraw/edit">
+    <ContentSlide
+      direction={direction}
+      layoutIdTitle="team"
+      title="Team members and withdraw/edit"
+    >
       {step < 8 && (
         <Grid w="100%" templateColumns="repeat(2, 1fr)" gap={24} mt={4}>
           <VStack spacing={8} alignItems="flex-start">
@@ -781,12 +785,8 @@ const TeamAndWithdraw = ({ direction, step }) => {
           </VStack>
         </Grid>
       )}
-      <MVStack
-        layoutId="strangeInteractions"
-        spacing={8}
-        alignItems="flex-start"
-      >
-        {step >= 8 && (
+      <VStack spacing={8} alignItems="flex-start">
+        {step >= 12 && (
           <MText textStyle="subHeading2" {...toggleOpacity} custom="enter">
             Strange interactions
           </MText>
@@ -806,8 +806,8 @@ const TeamAndWithdraw = ({ direction, step }) => {
             </ListItem>
           </MList>
         )}
-      </MVStack>
-      {step >= 9 && step <= 12 && (
+      </VStack>
+      {step >= 8 && step <= 11 && (
         <MFlex
           position="absolute"
           h="100vh"
@@ -820,7 +820,7 @@ const TeamAndWithdraw = ({ direction, step }) => {
           {...toggleOpacity}
           custom="enter"
         >
-          {step === 9 && (
+          {step === 8 && (
             <VStack spacing={8}>
               <Text textStyle="heading2">Daniel's Request</Text>
               <CaptionImage
@@ -831,10 +831,10 @@ const TeamAndWithdraw = ({ direction, step }) => {
               />
             </VStack>
           )}
-          {step === 10 && (
+          {step === 9 && (
             <Text textStyle="subHeading1">What if I withdraw?</Text>
           )}
-          {step === 11 && (
+          {step === 10 && (
             <VStack spacing={8}>
               <Text textStyle="heading2">My Request</Text>
               <CaptionImage
@@ -845,7 +845,7 @@ const TeamAndWithdraw = ({ direction, step }) => {
               />
             </VStack>
           )}
-          {step === 12 && (
+          {step === 11 && (
             <VStack spacing={8}>
               <Text textStyle="heading2">My Request</Text>
               <CaptionImage
@@ -866,6 +866,7 @@ const TeamWithdrawImplementation = ({ direction, step }) => {
   return (
     <ContentSlide
       direction={direction}
+      layoutIdTitle="team"
       title="Should team members see withdraw button?"
     >
       <VStack spacing={8} alignItems="flex-start">
@@ -885,7 +886,7 @@ const TeamWithdrawImplementation = ({ direction, step }) => {
             </ListItem>
           </List>
         </VStack>
-        <List spacing={8}>
+        <List spacing={8} pt={8}>
           {step >= 1 && (
             <MListItem {...toggleOpacity} custom="enter">
               <Text textStyle="body1">
