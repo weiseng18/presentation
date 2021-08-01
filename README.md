@@ -2,7 +2,12 @@
 
 Slides for my end-of-internship presentation at [Open Government Products](https://www.open.gov.sg/).
 
-## How to view my slides
+## How to view my slides (online)
+
+- My slides are hosted [here](https://presentation-weiseng18.vercel.app/slides)
+- Click into the browser window to focus
+
+## How to view my slides (locally)
 
 - Clone the repo
 - Go to the `ogp` branch
